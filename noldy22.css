@@ -1,0 +1,62 @@
+nav {
+    background-color: violet;
+    height: 40px;
+    display : flex;
+    align-items: center;
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: nowrap;
+    gap : 0.4rem;
+    margin : 0;
+    padding: 0;
+    font-size: clamp(14px, 2vw, 20px);
+    height: 100%;
+    align-items: center;
+}
+nav li {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+nav a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color : black;
+    border-radius: 5px;
+    padding: 0 10px;
+    transition: all 0.2s ease;
+    height: 100%;
+}
+nav a:hover {
+    background-color: purple;
+    color : red;
+    height: 100%;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+nav a.current {
+    background-color: purple;
+    color : red;
+    height: 100%;
+    font-weight: bold;
+}
+body{
+    background-color: black;
+}
+h1.main-title {
+    color: rgb(192, 20, 20);
+    font-size: 500%;
+    font-weight: bold;
+}
+p.main-description {
+    color: rgb(161, 152, 152);
+    font-size: 100%;
+    font-weight: bold;
+}
