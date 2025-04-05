@@ -47,6 +47,39 @@ nav a.current {
     height: 100%;
     font-weight: bold;
 }
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    font-size: 24px;
+    border: 1px solid violet;
+    border-radius: 50%;
+    color: violet;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: white;
+    background-color: purple;
+    transform: scale(1.2);
+    border-color: purple;
+}
+.contact-intro {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgb(161, 152, 152);
+}
+
+
 body{
     background-color: black;
 }
