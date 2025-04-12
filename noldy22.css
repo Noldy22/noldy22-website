@@ -119,10 +119,20 @@ nav a.current {
     border-color: purple;
 }
 body{
-    background-color: black;
+    background-color: rgb(40, 25, 35);
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+h1.header{
+    color: rgb(192, 20, 20);
+    font-size: 200%;
+    font-weight: bold;
+    text-align: left;
 }
 h1.main-title {
     color: rgb(192, 20, 20);
@@ -130,7 +140,7 @@ h1.main-title {
     font-weight: bold;
 }
 p.main-description {
-    color: rgb(161, 152, 152);
+    color: white;
     font-size: 100%;
     font-weight: bold;
 }
