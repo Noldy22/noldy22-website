@@ -1,12 +1,24 @@
 nav {
     background-color: violet;
     height: 40px;
-    display : flex;
+    display: flex;
     align-items: center;
     border-radius: 5px;
     flex-wrap: wrap;
     justify-content: center;
-}
+    width: 100%;
+    /* Initially positioned normally */
+    top: -40px; /* Initially positioned above its final fixed position (equal to its height) */
+    transition: top 0.3s ease-in-out, position 0.3s ease-in-out; /* Transition the top and position */
+  }
+  
+  nav.sticky {
+    position: fixed;
+    top: 0; /* Move to the final fixed position */
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other content when sticky */
+  }
+  
 nav ul {
     list-style-type: none;
     display: flex;
@@ -69,6 +81,8 @@ nav li.dropdown:hover > .dropdown-menu {
   nav .dropdown-menu a:hover {
     background-color: purple;
     color: red;
+    align-items: center;
+    justify-content: center;
   }
 nav a {
     display: flex;
@@ -88,6 +102,8 @@ nav a:hover {
     height: 100%;
     font-weight: bold;
     transform: scale(1.1);
+    align-items: center;
+    justify-content: center;
 }
 nav a.current {
     background-color: purple;
@@ -143,4 +159,75 @@ p.main-description {
     color: white;
     font-size: 100%;
     font-weight: bold;
+}
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: rgb(50, 30, 45); /* darker purple shade */
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.hero h2 {
+    color: violet;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero p {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: violet;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: purple;
+    color: red;
+    transform: scale(1.1);
+}
+.section {
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgb(50, 30, 45); /* same dark purple as hero */
+    border-radius: 10px;
+}
+
+.section-title {
+    color: violet;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.section-description {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.section-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
