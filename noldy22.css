@@ -231,3 +231,16 @@ p.main-description {
     gap: 20px;
     flex-wrap: wrap;
 }
+footer {
+    background-color: black; /* same dark purple as hero */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+footer p {
+    margin: 0;
+    font-size: 1em;
+    color: violet;
+}
