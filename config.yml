@@ -1,8 +1,0 @@
-tunnel: 2c599bd6-94a6-4c34-8af7-7c4c7cbdaed6
-credentials-file: C:\Users\Noldy\.cloudflared\2c599bd6-94a6-4c34-8af7-7c4c7cbdaed6.json
-ingress:
-  - hostname: noldy22.com           # Root domain
-    service: http://localhost:8000
-  - hostname: www.noldy22.com       # WWW subdomain
-    service: http://localhost:8000
-  - service: http_status:404        # Block all other requests
