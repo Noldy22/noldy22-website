@@ -187,6 +187,17 @@ footer {
     font-size: 1.5rem;
     cursor: pointer;
 }
+.dropdown-toggle {
+    background: transparent;
+    border: none;
+    color: var(--neutral-light);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.dropdown.active .dropdown-toggle {
+    transform: rotate(180deg);
+}
 
 @media (max-width: 768px) {
     header {
@@ -220,6 +231,17 @@ footer {
         background-color: var(--neutral-dark);
         z-index: 1000;
         box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .dropdown-toggle {
+        background: transparent;
+        border: none;
+        color: var(--neutral-light);
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .dropdown.active .dropdown-toggle {
+        transform: rotate(180deg);
     }
 
     nav ul.menu-active {

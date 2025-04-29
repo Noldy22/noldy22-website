@@ -7,41 +7,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Dynamic padding adjustment (DESKTOP ONLY)
   function updatePadding() {
-      if (window.innerWidth > 768) { // Only apply to desktop
+      if (window.innerWidth > 768) {
           const headerHeight = headerElement.offsetHeight;
           body.style.paddingTop = headerHeight + 'px';
       } else {
-          body.style.paddingTop = '0'; // Reset for mobile
+          body.style.paddingTop = '0';
       }
   }
 
   // Initial setup
   updatePadding();
-  
-  // Update on resize
   window.addEventListener('resize', updatePadding);
 
-  // Toggle menu
+  // Mobile menu toggle
   menuToggle.addEventListener('click', function(e) {
       e.stopPropagation();
       navMenu.classList.toggle('menu-active');
   });
 
-  // Close menu when clicking outside
+  // Dropdown toggle functionality
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const dropdown = this.closest('.dropdown');
+          const isActive = dropdown.classList.contains('active');
+          
+          // Close all dropdowns first
+          document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+          
+          // Toggle current dropdown if not active
+          if (!isActive) {
+              dropdown.classList.add('active');
+          }
+      });
+  });
+
+  // Close menus when clicking outside
   document.addEventListener('click', function(e) {
+      // Close mobile menu
       if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
           navMenu.classList.remove('menu-active');
       }
+      
+      // Close all dropdowns
+      document.querySelectorAll('.dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+      });
   });
 
-  // Dropdown handling for mobile
-  document.querySelectorAll('.dropdown > a').forEach(item => {
-      item.addEventListener('click', function(e) {
-          if (window.innerWidth <= 768) {
-              e.preventDefault();
-              const dropdownMenu = this.nextElementSibling;
-              dropdownMenu.classList.toggle('menu-active');
-          }
-      });
+  // Mobile: Close dropdowns when resizing to desktop
+  window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+          document.querySelectorAll('.dropdown').forEach(dropdown => {
+              dropdown.classList.remove('active');
+          });
+      }
   });
 });
