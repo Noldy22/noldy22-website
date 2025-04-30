@@ -208,6 +208,9 @@ footer {
         padding: 0.5rem 1rem;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
+    .logo {
+        max-width: 80px; /* Smaller logo on mobile */
+    }
 
     .menu-toggle {
         display: block;
@@ -279,4 +282,16 @@ footer {
             transform: translateY(0);
         }
     }
+}
+.logo {
+    max-width: 80px; /* Adjust based on your logo size */
+    height: auto;
+    display: block;
+    padding: 10px 0; /* Add vertical spacing if needed */
+}
+
+/* Optional: Add hover effect */
+.logo:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
