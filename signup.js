@@ -6,11 +6,13 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('signupPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
 
-    if (password !== confirmPassword) return showError('Passwords do not match');
-    if (password.length < 8) return showError('Password must be at least 8 characters');
+    // Enhanced validation
+    if (!email.includes('@')) return showError('Invalid email format');
+    if (password !== confirmPassword) return showError('Passwords must match');
+    if (password.length < 8) return showError('Password needs 8+ characters');
 
     try {
-        const response = await fetch('/api/signup', {
+        const response = await fetch('https://your-render-backend-url.onrender.com/api/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -19,12 +21,12 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         const data = await response.json();
         
         if (response.ok) {
-            alert('Signup successful! Please login.');
+            alert('Registration successful! Please login.');
             window.location.href = 'login.html';
         } else {
-            showError(data.error || 'Registration failed');
+            showError(data.error || 'Registration failed: Try different credentials');
         }
     } catch (err) {
-        showError('Network error - please try again');
+        showError('Connection error: Server unavailable');
     }
 });

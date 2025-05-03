@@ -6,11 +6,14 @@ export function isAuthenticated() {
     
     try {
         const { exp } = jwtDecode(token);
-        return Date.now() < exp * 1000;
+        return Date.now() < exp * 1000 - 5000; // 5-second buffer
     } catch {
+        localStorage.removeItem('token'); // Clear invalid tokens
         return false;
     }
 }
+
+// Keep other functions unchanged
 
 export function logout() {
     localStorage.removeItem('token');

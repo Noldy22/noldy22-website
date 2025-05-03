@@ -2,7 +2,7 @@ import { isAuthenticated } from './auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const protectedPaths = [
-        '/products/',
+        '/products/',          // Needs trailing slash consistency
         '/services/',
         '/about-Noldy22.html',
         '/contact-Noldy22.html'
@@ -10,15 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const currentPath = window.location.pathname;
     
-    if (protectedPaths.some(path => currentPath.startsWith(path))) {
+    // Improved path matching
+    if (protectedPaths.some(path => currentPath.includes(path))) {
         if (!isAuthenticated()) {
-            const redirectUrl = encodeURIComponent(window.location.pathname);
+            const redirectUrl = encodeURIComponent(window.location.href); // Full URL
             window.location.href = `/login.html?redirect=${redirectUrl}`;
         }
     }
 });
-
-window.logout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login.html';
-};

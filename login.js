@@ -6,7 +6,8 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('loginPassword').value;
 
     try {
-        const response = await fetch('/api/login', {
+        // Use full backend URL
+        const response = await fetch('https://your-render-backend-url.onrender.com/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -16,15 +17,16 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         
         if (response.ok) {
             localStorage.setItem('token', data.token);
-            
-            // Handle redirection
-            const urlParams = new URLSearchParams(window.location.search);
-            const redirectPath = urlParams.get('redirect') || '/index.html';
-            window.location.href = decodeURIComponent(redirectPath);
+            // Wait for storage to complete before redirect
+            setTimeout(() => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectPath = urlParams.get('redirect') || '/index.html';
+                window.location.href = decodeURIComponent(redirectPath);
+            }, 100);
         } else {
-            showError(data.error || 'Login failed');
+            showError(data.error || 'Login failed: Check your credentials');
         }
     } catch (err) {
-        showError('Network error - please try again');
+        showError('Connection error: Server unavailable');
     }
 });
