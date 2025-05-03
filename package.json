@@ -1,0 +1,23 @@
+{
+  "name": "noldy22.com",
+  "version": "1.0.0",
+  "main": "noldy22.js",
+  "scripts": {
+     "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noldy22/noldy22-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Noldy22/noldy22-website/issues"
+  },
+  "homepage": "https://github.com/Noldy22/noldy22-website#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
