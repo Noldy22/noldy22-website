@@ -5,6 +5,11 @@
     --neutral-light: #F8F9FA;
     --cta: #FF6B6B;
 }
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
 * {
     margin: 0;
@@ -644,4 +649,136 @@ footer {
     .tier {
         padding: 1rem;
     }
+}
+
+/* Auth Specific Styles */
+.auth-section {
+    padding: 6rem 2rem 4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    background: var(--neutral-dark);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-width: 500px;
+    width: 100%;
+}
+
+.auth-welcome {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-subtitle {
+    color: var(--neutral-light);
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.auth-form {
+    margin: 2rem 0;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: var(--primary-dark);
+    border: 2px solid rgba(255, 215, 0, 0.1);
+    border-radius: 8px;
+    color: var(--neutral-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+.btn-block {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.btn-secondary {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--accent);
+    border: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.auth-divider {
+    position: relative;
+    margin: 2rem 0;
+    text-align: center;
+    color: var(--neutral-light);
+    opacity: 0.7;
+}
+
+.auth-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    z-index: 1;
+}
+
+.auth-divider span {
+    position: relative;
+    padding: 0 1rem;
+    background: var(--neutral-dark);
+    z-index: 2;
+}
+
+.auth-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .auth-section {
+        padding: 4rem 1rem;
+    }
+    
+    .auth-links {
+        flex-direction: column;
+    }
+}
+/* Add to noldy22.css */
+.fa-check-circle {
+    color: var(--accent);
+    opacity: 0.7;
 }
