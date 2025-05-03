@@ -1,4 +1,5 @@
-import jwtDecode from 'jwt-decode';
+import jwtDecode from 'https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/+esm';
+
 
 export function isAuthenticated() {
     const token = localStorage.getItem('token');
