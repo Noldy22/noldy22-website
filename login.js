@@ -7,7 +7,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
     try {
         // Use full backend URL
-        const response = await fetch('https://your-render-backend-url.onrender.com/api/login', {
+        const response = await fetch('https://noldy22-website.onrender.com/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })

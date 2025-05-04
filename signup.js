@@ -12,7 +12,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
     if (password.length < 8) return showError('Password needs 8+ characters');
 
     try {
-        const response = await fetch('https://your-render-backend-url.onrender.com/api/signup', {
+        const response = await fetch('https://noldy22-website.onrender.com/api/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
