@@ -6,18 +6,19 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('loginPassword').value;
 
     try {
-        // Use full backend URL
+        // Use full backend URL with credentials included
         const response = await fetch('https://noldy22-website.onrender.com/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password }),
+            credentials: 'include' // Include credentials to allow cookies
         });
 
         const data = await response.json();
         
-        if (response.ok) {
-            localStorage.setItem('token', data.token);
-            // Wait for storage to complete before redirect
+        if (response.ok && data.success) {
+            // No need to store the token; it's handled by the cookie
+            // Wait for any potential cookie setting before redirect
             setTimeout(() => {
                 const urlParams = new URLSearchParams(window.location.search);
                 const redirectPath = urlParams.get('redirect') || '/index.html';

@@ -15,12 +15,13 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         const response = await fetch('https://noldy22-website.onrender.com/api/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, password }),
+            credentials: 'include' // Include credentials for consistency
         });
 
         const data = await response.json();
         
-        if (response.ok) {
+        if (response.ok && data.message === 'Registration successful') {
             alert('Registration successful! Please login.');
             window.location.href = 'login.html';
         } else {

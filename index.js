@@ -5,10 +5,11 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
+const cookieParser = require('cookie-parser'); // Added for cookie handling
 
 const app = express();
 
-// Enhanced security config
+// Middleware setup
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
@@ -26,15 +27,17 @@ app.use(cors({
         'http://localhost:3000' // For local development
     ],
     methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true // Allow cookies to be sent with requests
 }));
 
 app.use(express.json());
+app.use(cookieParser()); // Enable cookie parsing
 
-// Temporary database (replace with real DB)
+// Temporary in-memory database (replace with real DB later)
 let users = [];
 
-// Enhanced login route
+// Login route with cookie-based JWT
 app.post('/api/login', [
     check('email').isEmail().withMessage('Invalid email format').normalizeEmail(),
     check('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters')
@@ -61,8 +64,16 @@ app.post('/api/login', [
             { expiresIn: '1h' }
         );
 
-        res.json({ 
-            token,
+        // Set JWT in an HTTP-only cookie
+        res.cookie('auth_token', token, {
+            httpOnly: true, // Prevents JavaScript access to the cookie
+            secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+            sameSite: 'strict', // Prevents CSRF
+            maxAge: 3600000 // 1 hour in milliseconds
+        });
+
+        res.json({
+            success: true,
             userId: user.id,
             email: user.email
         });
@@ -72,7 +83,7 @@ app.post('/api/login', [
     }
 });
 
-// Enhanced signup route
+// Signup route (unchanged, no token issued)
 app.post('/api/signup', [
     check('email').isEmail().withMessage('Invalid email format').normalizeEmail(),
     check('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters')
@@ -82,7 +93,7 @@ app.post('/api/signup', [
 
     try {
         const { email, password } = req.body;
-        
+
         if (users.some(u => u.email === email)) {
             return res.status(409).json({ error: 'Email already registered' });
         }
@@ -96,13 +107,33 @@ app.post('/api/signup', [
         };
 
         users.push(newUser);
-        res.status(201).json({ 
+        res.status(201).json({
             message: 'Registration successful',
             userId: newUser.id
         });
     } catch (error) {
         console.error('Signup error:', error);
         res.status(500).json({ error: 'Registration failed' });
+    }
+});
+
+// Authentication check route
+app.get('/api/check-auth', (req, res) => {
+    const token = req.cookies.auth_token;
+
+    if (!token) {
+        return res.status(401).json({ authenticated: false });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        res.json({
+            authenticated: true,
+            user: { id: decoded.userId, email: decoded.email }
+        });
+    } catch (error) {
+        console.error('Auth check error:', error);
+        res.status(401).json({ authenticated: false });
     }
 });
 
