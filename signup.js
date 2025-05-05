@@ -35,50 +35,12 @@ function getFriendlyErrorMessage(errorCode) {
       default:
           return 'An error occurred. Please try again.';
   }
-}// Add these helper functions at the top
-function showAlert(message, type = 'success') {
-    const container = document.getElementById('alertContainer');
-    const content = container.querySelector('.alert-content');
-    const messageElement = document.getElementById('alertMessage');
-    
-    // Reset classes
-    content.className = 'alert-content';
-    
-    // Set content and style
-    messageElement.textContent = message;
-    content.classList.add(type);
-    
-    // Show alert
-    container.style.display = 'block';
-    
-    // Auto-hide after 5 seconds
-    setTimeout(() => {
-        container.style.display = 'none';
-    }, 5000);
-}
-
-function getFriendlyErrorMessage(errorCode) {
-    switch(errorCode) {
-        case 'auth/email-already-in-use':
-            return 'This email is already registered.';
-        case 'auth/weak-password':
-            return 'Password should be at least 6 characters.';
-        case 'auth/invalid-email':
-            return 'Please enter a valid email address.';
-        case 'auth/operation-not-allowed':
-            return 'Account creation is currently disabled.';
-        case 'auth/too-many-requests':
-            return 'Too many attempts. Please try again later.';
-        default:
-            return 'An error occurred. Please try again.';
-    }
 }
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -113,36 +75,11 @@ submit.addEventListener("click", function(event) {
     .then((userCredential) => {
         showAlert('Account created successfully! Redirecting...', 'success');
         setTimeout(() => {
-            window.location.href = "homepage.html";
+            window.location.href = "index.html";
         }, 2000); // Wait 2 seconds before redirect
     })
     .catch((error) => {
         const errorMessage = getFriendlyErrorMessage(error.code);
         showAlert(errorMessage, 'error');
     });
-});
-
-// — Enhanced client-side validation —
-  if (!email.includes("@")) {
-    return showError("Invalid email format");
-  }
-  if (password !== confirmPassword) {
-    return showError("Passwords must match");
-  }
-  if (password.length < 8) {
-    return showError("Password needs at least 8 characters");
-  }
-
-  try {
-    // Call Firebase Auth
-    await signup(email, password);
-
-    // On success, send them to login (or directly to dashboard if you prefer)
-    alert("Registration successful! Please log in.");
-    window.location.href = "login.html";
-
-  } catch (err) {
-    // err.code is like "auth/email-already-in-use", err.message is a human-readable string
-    showError(err.message);
-  }
 });
