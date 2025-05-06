@@ -78,6 +78,13 @@ function showAlert(message, type = 'success') {
       .then((userCredential) => {
           showAlert('Logging in to your account...', 'success');
   
+          console.log("🔑 About to fetch token cookie…");
+             return auth.currentUser.getIdToken(true)
+             .then(idToken => {
+           console.log("🔐 Got ID token, now POSTing to /setTokenCookie");
+           return fetch('/setTokenCookie', { … });
+
+
           // 2) Get fresh ID token
           return auth.currentUser.getIdToken(/* forceRefresh */ true);
       })
