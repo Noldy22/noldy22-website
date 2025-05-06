@@ -1,5 +1,5 @@
-import { initializeApp, cert } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+import { initializeApp, cert } from 'firebase-admin/app';
+import { getAuth } from 'firebase-admin/auth';
 
 // Lazily initialize so cold starts aren’t repeated
 let adminInitialized = false;
