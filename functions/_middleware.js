@@ -7,36 +7,9 @@ function initAdmin() {
   if (adminInitialized) return;
   initializeApp({
     credential: cert({
-      projectId:    noldy22-7836c,
-      clientEmail:  firebase-adminsdk-fbsvc@noldy22-7836c.iam.gserviceaccount.com,
-      privateKey:   -----BEGIN PRIVATE KEY-----
-      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDU57V+gg58y0sa
-      dGoWOi4d1VBymveRj+PkGkez03mbdEL/muUvf/V8xriyVeYBm09i9QLerXCa32EI
-      Ai9gdOKTqlFQHtH4oQQe+URwcQgwrYhk6e/Yfm+O4tgavPBvXNRTzI24irHPW29d
-      IQcqV4UhCgshQR4gLXQ8RJGFLhlwBE7qHdBclBJFChhAvPq5q7AX5hJUFXDKDD7P
-      lzK8bHh4JastmTWu2xMU2NXy6sH0TjelP+CTiPn2KtOm1Q6vT0BiHybOwehUAN3K
-      W6nflvdmQso8TEzWmPw/5qrgxC6EYWFum9wr+bYgA3ok/n1sA5KZdnlq450spO/p
-      K3zyqoizAgMBAAECggEAGMWXrySKyFJkZquXkbErSdABZZRKVzwavqD1fs2Nn1zO
-      VCyS8LfpZEnq64plvKzJdoYeKLKddiek2T2ygtKWxP+oKQkCUp90JKEe1Bu9YYyP
-      YM58raqTEwOp3qflLHqXPzjUXzMkBTBqVgz7EcjPy0xT3IarGVYF6Y1A2/IahkHZ
-      DPEonpUptTxwvNYOFwTUqTzLa9jEcuPcPMj20lZGJY61GK+XlHevjTUXxE1WTkT8
-      XG70gOaUwg68ZLRYgjcFil9jPmGvnC8MXDIo7AMx3gDVbHolIWcWoAoseWFU27A4
-      ZpflFwI1cyE1o0/LrGS7NoZBw1M4h6mkjPlVoiq2YQKBgQDwvHZZkIZlwIR66qYr
-      eohX/GVUoDQr2QrwbsGCa+GWin3C0L6zmq98pwtUjQGnk9Uq/GnyE7FnBVokEVsS
-      ugW7LbMbqQGROcN+czicGKmBvRBX3oPcJzMtgmbYGQMmxXdCwv52URhARqxFF4+3
-      P0AzbYAs5PgJEOSP/B2mqAqvZwKBgQDiZ4De4UGLZuf7eZT86eaREO9IoC2JIIh5
-      pHnkk5sGmE8Nq7P1TAOz/MEePu3783+hfmxZTxTBEel96ml4fhlRl0XC+Yn5zFou
-      fAbQyBZmRFg++qWx4Bex8SyAhU9NOoOQiu2Izpgq9c9qQh2QLyqyuX+T3fsdv2CH
-      oexPwB2o1QKBgQDH2j2KV2Arwup4vKqc98mO+dsJqUIGkNXzCo+dfYA3INwMyo02
-      v5kmK+tNEw6nlyPl3sz5if3B4ACYZswrvMEbRnIl6WWCseio5nC9rf+y1EloGTNw
-      ph5njpVgm0sxecdrZkQn52Txn3pOlaPa5iifSS2al6+OnzaQjiXzgBf2ywKBgErO
-      VCBQYS3ERKYsl/Ow/QO1irp+Yk1KuI0osTW7J5/YN1aXAxDrmtWfj9eEh3GWFPex
-      I++mV38rgfCewVaUo5z31I8FkHc+9BUj2cSmN/B2aIn2m0TYfDvJKiEU6wzjZpEd
-      tjpbuJ+JNI0xZz86tmrzK5oZ4F0F3Mkz0TbQjXw5AoGAPZsfMrScPgt8Gf2zokkP
-      ngAuzAd9bYswFwX4T2HCorlkdTGYtomXS8k4fEY0UjNje/YSQosen1t8oDF+N/Od
-      bYLxTaXMnTe+Ehuknygl90vj7T+mp/Dqa1D8u9E2khH+4eytmx7VrAgaNZlE9Rh5
-      YlA+OYnfQt4NonwQOfWqxus=
-      -----END PRIVATE KEY-----,
+      projectId:    env.FIREBASE_PROJECT_ID,
+      clientEmail:  env.FIREBASE_CLIENT_EMAIL,
+      privateKey:   env.FIREBASE_PRIVATE_KEY,
     }),
   });
   adminInitialized = true;
