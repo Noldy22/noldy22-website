@@ -16,10 +16,12 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = getAuth();
+  const authButton = document.getElementById('authButton');
   onAuthStateChanged(auth, user => {
     if (user) {
       console.log("✅ Client sees user:", user.uid);
       // maybe show a “Logout” button
+      authButton.textContent = 'Logout';
     } else {
       console.log("❌ Client sees NO user, redirecting…");
       window.location.replace('/login.html');
