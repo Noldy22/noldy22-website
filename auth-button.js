@@ -1,48 +1,3 @@
-// Add this alert handling code at the top of your file
-function showAlert(message, type = 'success') {
-    const container = document.getElementById('alertContainer');
-    const content = container.querySelector('.alert-content');
-    const messageElement = document.getElementById('alertMessage');
-    
-    // Reset classes
-    content.className = 'alert-content';
-    
-    // Set content and style
-    messageElement.textContent = message;
-    content.classList.add(type);
-    
-    // Show alert
-    container.style.display = 'block';
-    
-    // Auto-hide after 5 seconds
-    setTimeout(() => {
-        container.style.display = 'none';
-    }, 5000);
-  }
-  
-  // Close alert handler
-  document.querySelector('.close-alert')?.addEventListener('click', () => {
-    document.getElementById('alertContainer').style.display = 'none';
-  });
-  
-  // Error message formatter
-  function getFriendlyErrorMessage(errorCode) {
-    switch(errorCode) {
-        case 'auth/invalid-email':
-            return 'Please enter a valid email address.';
-        case 'auth/user-disabled':
-            return 'This account has been disabled.';
-        case 'auth/user-not-found':
-            return 'No account found with this email.';
-        case 'auth/wrong-password':
-            return 'Incorrect password. Please try again.';
-        case 'auth/too-many-requests':
-            return 'Too many attempts. Please try again later.';
-        default:
-            return 'An error occurred. Please try again.';
-    }
-  }
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAnalytics }   from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 import {
@@ -72,6 +27,8 @@ const authLink = document.getElementById('authLink');
 // 3. Listen for auth state changes
 onAuthStateChanged(auth, user => {
   if (user) {
+    console.log("✅ Client sees user:", user.uid);
+
     // Signed in → show “Logout”
     authLink.textContent = 'Logout';
     authLink.href = '#';            // override the link
@@ -80,16 +37,18 @@ onAuthStateChanged(auth, user => {
       signOut(auth)
         .then(() => {
           // optional feedback
-          showAlert('Logged out successfully');
+          alert('Logged out successfully');
           // redirect to login (or home)
           window.location.href = '/login.html';
         })
         .catch(err => {
           console.error(err);
-          showAlert('Error logging out');
+          alert('Error logging out');
         });
     };
   } else {
+    console.log("❌ Client sees NO user");
+
     // Not signed in → show “Login”
     authLink.textContent = 'Login';
     authLink.href = '/login.html';
