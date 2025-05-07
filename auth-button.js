@@ -67,9 +67,9 @@ onAuthStateChanged(auth, user => {
           // Use styled alert instead of default
           showAlert('Logged out successfully', 'success');
           
-          // Redirect to login after short delay
+          // Redirect to homepage after short delay
           setTimeout(() => {
-            window.location.href = '/login.html';
+            window.location.href = '/index.html';
           }, 1500); // Let user see the success message first
         })
         .catch(err => {
