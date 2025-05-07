@@ -783,57 +783,35 @@ footer {
     opacity: 0.7;
 }
 
-/* ===== Alert Message Styles ===== */
-#alertContainer {
+/* Alert Styles */
+.alert-container {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    left: auto;
-    width: auto;
-    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--neutral-dark);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     z-index: 2000;
+    max-width: 90%;
+    width: 500px;
     display: none;
-    animation: alertSlideIn 0.3s ease-out;
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: alertFadeIn 0.3s ease-out;
 }
 
 .alert-content {
     position: relative;
-    padding: 1rem 2.5rem 1rem 1.5rem;
-    background: var(--neutral-dark);
-    border: 2px solid transparent;
-    border-radius: 6px;
-}
-
-.alert-content.success {
-    background: rgba(255, 215, 0, 0.1);
-    border-color: var(--accent);
-}
-
-.alert-content.error {
-    background: rgba(255, 107, 107, 0.1);
-    border-color: var(--cta);
-}
-
-#alertMessage {
-    color: var(--neutral-light);
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.5;
+    padding: 2rem;
 }
 
 .close-alert {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    color: var(--neutral-light);
+    top: 1rem;
+    right: 1rem;
     font-size: 1.5rem;
-    line-height: 1;
+    color: var(--neutral-light);
     cursor: pointer;
-    padding: 0.25rem;
     transition: color 0.3s ease;
 }
 
@@ -841,37 +819,36 @@ footer {
     color: var(--accent);
 }
 
-@keyframes alertSlideIn {
+#alertMessage {
+    color: var(--neutral-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+@keyframes alertFadeIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translate(-50%, -60%);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate(-50%, -50%);
     }
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    #alertContainer {
-        top: 10px;
-        right: 10px;
-        left: 10px;
-        max-width: none;
+    .alert-container {
+        width: 90%;
+        padding: 1rem;
     }
     
     .alert-content {
-        padding: 1rem 2rem 1rem 1rem;
+        padding: 1.5rem;
     }
     
     #alertMessage {
-        font-size: 0.9rem;
-    }
-    
-    .close-alert {
-        top: 0.25rem;
-        right: 0.25rem;
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 }
