@@ -92,7 +92,7 @@ onAuthStateChanged(auth, user => {
   } else {
     // Not signed in → show “Login”
     authLink.textContent = 'Login';
-    authLink.href = '/index.html';
+    authLink.href = '/login.html';
     authLink.onclick = null;        // remove any old handler
   }
 });
