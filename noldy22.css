@@ -852,3 +852,60 @@ footer {
         font-size: 1rem;
     }
 }
+/* Add this to your CSS file */
+.level-card ul {
+    list-style-type: none;
+    margin: 1rem 0;
+}
+
+.level-card li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.level-card li::before {
+    content: "•";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Product Page Enhancements */
+.product-header {
+    padding: 2rem 0;
+}
+
+.feature-item {
+    padding: 1.5rem;
+    background: rgba(255,215,0,0.05);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.settings-table th {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.faq-item {
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+}
+
+.styled-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.styled-list li::before {
+    content: "▹";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+}

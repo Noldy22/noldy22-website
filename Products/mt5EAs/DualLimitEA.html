@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="module" src="../../user-check.js" defer></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>MT5 Expert Advisors | Noldy22</title>
+    <link rel="stylesheet" href="../../noldy22.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="../../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg" />
+    <link rel="shortcut icon" href="../../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Noldy22" />
+    <link rel="manifest" href="../../images/site.webmanifest" />
+
+</head>
+<body>
+    <header>
+        <h1 class="header"><a href="../../index.html"><img src="../../images/Noldy22 logo.png" class="logo" alt="Noldy22 logo"></a></h1>
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a class="current" href="../products.html">Products</a>
+                        <button class="dropdown-toggle" aria-label="Toggle products menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="../mt5EAs.html">MT5 Expert Advisors</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a href="../../Services/Services.html">Services</a>
+                        <button class="dropdown-toggle" aria-label="Toggle services menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../Services/ForexLessons.html">Forex Lessons</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="../../about-Noldy22.html">About</a></li>
+                <li><a href="../../contact-Noldy22.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="ea-container">
+        <section class="section">
+            <div class="section-content">
+                <!-- Back Navigation -->
+                <a href="../mt5EAs.html" class="btn btn-secondary" style="margin-bottom: 2rem;">
+                    <i class="fas fa-arrow-left"></i> Back to All EAs
+                </a>
+    
+                <h1 class="section-title">DualLimit Expert Advisor</h1>
+                
+                <!-- Product Header -->
+                <div class="product-header" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; margin-bottom: 3rem;">
+                    <div>
+                        <img src="../../images/DualLimit-EA.png" alt="DualLimit EA Interface Preview" class="section-image">
+                    </div>
+                    <div class="product-summary">
+                        <p class="section-description" style="font-size: 1.2rem;">
+                            Automated dual-direction trading with smart risk management for conservative growth.
+                        </p>
+                        <div class="purchase-section" style="margin-top: 2rem;">
+                            <a href="https://www.mql5.com/en/market/product/138301?source=Site+Main#description" 
+                               class="btn" 
+                               style="background-color: var(--cta); padding: 1rem 2.5rem; font-size: 1.2rem;"
+                               target="_blank" 
+                               rel="noopener noreferrer">
+                                <i class="fas fa-shopping-cart"></i> Purchase on MQL5
+                            </a>
+                            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                                Secure purchase through official MQL5 marketplace
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Key Features -->
+                <div class="levels-container">
+                    <div class="level-card">
+                        <h2 class="subsection-title">Core Features</h2>
+                        <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                            <div class="feature-item">
+                                <h3><i class="fas fa-balance-scale" style="color: var(--accent);"></i> Dual Order Strategy</h3>
+                                <p>Simultaneously places buy limit and sell limit orders at user-defined intervals</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3><i class="fas fa-shield-alt" style="color: var(--accent);"></i> Risk Management</h3>
+                                <p>Automated lot sizing with 1-50% risk cap to prevent over-leverage</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3><i class="fas fa-sliders-h" style="color: var(--accent);"></i> Customizable Settings</h3>
+                                <p>Adjustable order distance, risk parameters, and trading times</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3><i class="fas fa-chart-line" style="color: var(--accent);"></i> Pair Specialization</h3>
+                                <p>Optimized for EURUSD & XAUUSD volatility patterns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <!-- Configuration Parameters Table -->
+<div class="section" style="margin: 3rem 0;">
+    <h2 class="subsection-title">Configuration Settings</h2>
+    <div class="settings-table" style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+            <thead>
+                <tr style="background-color: var(--primary-dark);">
+                    <th style="padding: 1rem; text-align: left;">Parameter</th>
+                    <th style="padding: 1rem; text-align: left;">Default Value</th>
+                    <th style="padding: 1rem; text-align: left;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Time Settings -->
+                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                    <td style="padding: 1rem;">Order Placement Hour</td>
+                    <td style="padding: 1rem;">1</td>
+                    <td style="padding: 1rem;">Server time hour to place pending orders (24h format)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                    <td style="padding: 1rem;">Order Placement Minute</td>
+                    <td style="padding: 1rem;">0</td>
+                    <td style="padding: 1rem;">Minute mark for order placement</td>
+                </tr>
+
+                <!-- Trade Settings -->
+                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                    <td style="padding: 1rem;">Risk Percentage</td>
+                    <td style="padding: 1rem;">2.0%</td>
+                    <td style="padding: 1rem;">Percentage of balance risked per trade (capped at 50%)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                    <td style="padding: 1rem;">Order Distance</td>
+                    <td style="padding: 1rem;">600 points</td>
+                    <td style="padding: 1rem;">Distance from current price to place orders</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                    <td style="padding: 1rem;">Stop Loss</td>
+                    <td style="padding: 1rem;">100 points</td>
+                    <td style="padding: 1rem;">Protective stop-loss distance</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                    <td style="padding: 1rem;">Take Profit</td>
+                    <td style="padding: 1rem;">550 points</td>
+                    <td style="padding: 1rem;">Profit target distance</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+                <!-- Risk Disclaimer -->
+                <div class="notice" style="background-color: rgba(255,107,107,0.1); padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Notice</h3>
+                    <p>While DualLimit EA includes risk management features, Forex trading carries inherent risks. Past performance does not guarantee future results. Never risk more than you can afford to lose.</p>
+                </div>
+    
+                <!-- Setup Instructions -->
+                <div class="setup-instructions">
+                    <h2 class="subsection-title">Installation Guide</h2>
+                    <ol class="styled-list" style="margin: 1.5rem 0; padding-left: 1.5rem;">
+                        <li>Purchase and download through MQL5 Market</li>
+                        <li>Copy .ex5 file to your MT5 Experts folder</li>
+                        <li>Configure parameters according to your strategy</li>
+                        <li>Enable auto-trading in MT5 terminal</li>
+                    </ol>
+                </div>
+    
+                <!-- FAQ -->
+                <div class="faq-section" style="margin-top: 3rem;">
+                    <h2 class="subsection-title">Frequently Asked Questions</h2>
+                    <div class="faq-grid" style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                        <div class="faq-item level-card">
+                            <h3>Does it require specific account types?</h3>
+                            <p>Works with any MT5 account type (hedging/netting)</p>
+                        </div>
+                        <div class="faq-item level-card">
+                            <h3>Can I use different currency pairs?</h3>
+                            <p>Currently optimized for EURUSD & XAUUSD only</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Noldy22.</p>
+        <p>All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/message/RUOEAFKTDCD4L1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/_noldy22?igsh=MTQxNnBtbHVweXI3Zg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/14vhKbHLG9/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/MinjaAnold?t=xmTaX1P-9pwbKkZcdJFAvw&s=09" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="../../noldy22.js"></script>
+</body>
+</html>
