@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="module" src="../../user-check.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>TrendPulse Pro EA | Noldy22</title>
+    <link rel="stylesheet" href="../../noldy22.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg" />
+    <link rel="shortcut icon" href="../../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Noldy22" />
+    <link rel="manifest" href="../../images/site.webmanifest" />
+</head>
+<body>
+    <header>
+        <h1 class="header"><a href="../../index.html"><img src="../../images/Noldy22 logo.png" class="logo" alt="Noldy22 logo"></a></h1>
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a class="current" href="../products.html">Products</a>
+                        <button class="dropdown-toggle" aria-label="Toggle products menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="../mt5EAs.html">MT5 Expert Advisors</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../about-Noldy22.html">About</a></li>
+                <li><a href="../../contact-Noldy22.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="ea-container">
+        <section class="section">
+            <div class="section-content">
+                <!-- Back Navigation -->
+                <a href="../mt5EAs.html" class="btn btn-secondary" style="margin-bottom: 2rem;">
+                    <i class="fas fa-arrow-left"></i> Back to All EAs
+                </a>
+
+                <h1 class="section-title">TrendPulse Pro EA</h1>
+
+                <!-- Product Header -->
+                <div class="product-header" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; margin-bottom: 3rem;">
+                    <div>
+                        <img src="../../images/TrendPulseProEA.png" alt="TrendPulse Pro EA Preview" class="section-image">
+                    </div>
+                    <div class="product-summary">
+                        <p class="section-description" style="font-size: 1.2rem;">
+                            Smart, one-click trend-following EA with adaptive risk and profit protection.
+                        </p>
+                        <div class="purchase-section" style="margin-top: 2rem;">
+                            <a href="https://www.mql5.com/en/market/product/138953?source=Site+Main" 
+                               class="btn" 
+                               style="background-color: var(--cta); padding: 1rem 2.5rem; font-size: 1.2rem;"
+                               target="_blank" 
+                               rel="noopener noreferrer">
+                                <i class="fas fa-shopping-cart"></i> Purchase on MQL5
+                            </a>
+                            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                                Secure purchase through official MQL5 marketplace
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Features -->
+                <div class="levels-container">
+                    <div class="level-card">
+                        <h2 class="subsection-title">Core Features</h2>
+                        <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                            <div class="feature-item">
+                                <h3><i class="fas fa-chart-line" style="color: var(--accent);"></i> Trend Detection</h3>
+                                <p>Monitor high timeframe MAs to identify strong market trends.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3><i class="fas fa-shield-alt" style="color: var(--accent);"></i> Risk Profiles</h3>
+                                <p>Low/Medium/High presets with customizable risk percentage.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3><i class="fas fa-location-arrow" style="color: var(--accent);"></i> Adaptive Trailing</h3>
+                                <p>Lock in profits automatically with toggleable trailing stops.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3><i class="fas fa-tachometer-alt" style="color: var(--accent);"></i> Dashboard</h3>
+                                <p>Real-time balance, equity, and profit display on your chart.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration Settings -->
+                <div class="section" style="margin: 3rem 0;">
+                    <h2 class="subsection-title">Configuration Settings</h2>
+                    <div class="settings-table" style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                            <thead>
+                                <tr style="background-color: var(--primary-dark);">
+                                    <th style="padding: 1rem; text-align: left;">Parameter</th>
+                                    <th style="padding: 1rem; text-align: left;">Default Value</th>
+                                    <th style="padding: 1rem; text-align: left;">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Trend Identification -->
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">MA Timeframe</td>
+                                    <td style="padding: 1rem;">H1</td>
+                                    <td style="padding: 1rem;">Timeframe for fast/slow moving averages</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">Fast MA Period</td>
+                                    <td style="padding: 1rem;">20</td>
+                                    <td style="padding: 1rem;">Period for fast MA calculation</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">Slow MA Period</td>
+                                    <td style="padding: 1rem;">50</td>
+                                    <td style="padding: 1rem;">Period for slow MA calculation</td>
+                                </tr>
+                                <!-- Retracement Detection -->
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">RSI Period</td>
+                                    <td style="padding: 1rem;">14</td>
+                                    <td style="padding: 1rem;">RSI calculation period</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">Oversold Level</td>
+                                    <td style="padding: 1rem;">30.0</td>
+                                    <td style="padding: 1rem;">RSI level to consider oversold</td>
+                                </tr>
+                                <!-- Entry Confirmation -->
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">MACD Fast EMA</td>
+                                    <td style="padding: 1rem;">6</td>
+                                    <td style="padding: 1rem;">Fast EMA period for MACD</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">MACD Slow EMA</td>
+                                    <td style="padding: 1rem;">13</td>
+                                    <td style="padding: 1rem;">Slow EMA period for MACD</td>
+                                </tr>
+                                <!-- Trade Settings -->
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">Initial Risk %</td>
+                                    <td style="padding: 1rem;">2.0%</td>
+                                    <td style="padding: 1rem;">Account balance risk per trade</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">Stop Loss (points)</td>
+                                    <td style="padding: 1rem;">500</td>
+                                    <td style="padding: 1rem;">Stop loss distance in points</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,215,0,0.1);">
+                                    <td style="padding: 1rem;">Take Profit (points)</td>
+                                    <td style="padding: 1rem;">1000</td>
+                                    <td style="padding: 1rem;">Take profit distance in points</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Risk Disclaimer -->
+                <div class="notice" style="background-color: rgba(255,107,107,0.1); padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Risk Disclaimer</h3>
+                    <p>Trading involves risks. Always test in a demo account before using real funds. Use proper money management.</p>
+                </div>
+
+                <!-- Installation Guide -->
+                <div class="setup-instructions">
+                    <h2 class="subsection-title">Installation Guide</h2>
+                    <ol class="styled-list" style="margin: 1.5rem 0; padding-left: 1.5rem;">
+                        <li>Purchase and download via MQL5 Market</li>
+                        <li>Copy the .ex5 file to your MT5 \Experts folder</li>
+                        <li>Restart MT5 and attach TrendPulse Pro to your chart</li>
+                        <li>Configure parameters as desired</li>
+                        <li>Enable AutoTrading and monitor initial performance</li>
+                    </ol>
+                </div>
+
+                <!-- FAQ -->
+                <div class="faq-section" style="margin-top: 3rem;">
+                    <h2 class="subsection-title">Frequently Asked Questions</h2>
+                    <div class="faq-grid" style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                        <div class="faq-item level-card">
+                            <h3>Which symbols are supported?</h3>
+                            <p>Currently optimized for EURUSD and XAUUSD.</p>
+                        </div>
+                        <div class="faq-item level-card">
+                            <h3>Can I adjust the risk manually?</h3>
+                            <p>Yes—use the risk mode buttons on chart or change Initial Risk % in settings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Noldy22.</p>
+        <p>All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/message/RUOEAFKTDCD4L1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/_noldy22" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/14vhKbHLG9/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/MinjaAnold" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="../../noldy22.js"></script>
+</body>
+</html>
