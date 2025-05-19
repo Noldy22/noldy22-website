@@ -1113,3 +1113,36 @@ footer {
     max-width: 400px;
     overflow-x: auto;
 }
+/* Add to existing styles */
+.explanation-box {
+    background: rgba(255,215,0,0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.accent {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.math-steps {
+    background: var(--primary-dark);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.step-by-step {
+    background: rgba(255,255,255,0.05);
+    padding: 1rem;
+    border-left: 3px solid var(--accent);
+    margin: 1rem 0;
+}
+
+.motivation {
+    background: rgba(255,215,0,0.1);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
