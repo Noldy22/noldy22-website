@@ -1663,3 +1663,61 @@ footer {
     border-radius: 8px;
     text-align: center;
 }
+/* Economic Indicators Grid */
+.indicator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.indicator-card {
+    padding: 1.5rem;
+    background: rgba(255,215,0,0.05);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.econ-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+/* Central Bank Styles */
+.central-bank-guide {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.bank-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: rgba(10,25,47,0.8);
+}
+
+.bank-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+}
+
+/* News Timeline */
+.news-timeline {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.event-card {
+    padding: 1rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(255,215,0,0.05);
+}
+
+.event-date {
+    color: var(--accent);
+    font-weight: bold;
+}
