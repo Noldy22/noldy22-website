@@ -1721,3 +1721,69 @@ footer {
     color: var(--accent);
     font-weight: bold;
 }
+/* Risk-Reward Visual */
+.rr-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.money {
+    padding: 1rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.risk { background: #F44336; }
+.reward { background: #4CAF50; }
+
+/* Probability Table */
+.probability-table {
+    background: var(--primary-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,215,0,0.1);
+}
+
+.table-row.result {
+    background: rgba(76,175,80,0.1);
+}
+
+/* Leverage Comparison */
+.leverage-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.leverage-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.dangerous { background: rgba(244,67,54,0.1); }
+.safe { background: rgba(76,175,80,0.1); }
+
+.warning-label, .safe-label {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.warning-label { background: #F44336; }
+.safe-label { background: #4CAF50; }
