@@ -909,3 +909,207 @@ footer {
     position: absolute;
     left: 0;
 }
+/* Add after existing table styles */
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--primary-dark);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    text-align: left;
+}
+
+.comparison-table th {
+    background-color: var(--neutral-dark);
+    font-family: 'Roboto Condensed', sans-serif;
+    color: var(--accent);
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+/* Expanded sections */
+.expanded {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 215, 0, 0.05);
+    border-radius: 8px;
+}
+
+.visual-guide {
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.visual-guide img {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Calculation workspace */
+.calculation-workspace {
+    background: var(--primary-dark);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.calculation-workspace p {
+    font-family: monospace;
+    color: var(--accent);
+    margin: 0.5rem 0;
+}
+
+/* Scenario questions */
+.scenario {
+    background: rgba(255, 107, 107, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.hint {
+    font-size: 0.9rem;
+    color: rgba(248, 249, 250, 0.7);
+    margin-top: 0.5rem;
+}
+
+/* Price ticker animation */
+.price-ticker {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-dark);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    margin: 1rem 0;
+}
+
+.bid-ask {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.spread {
+    color: var(--cta);
+    font-weight: bold;
+}
+
+/* Warning notes */
+.warning-note {
+    color: var(--cta);
+    padding: 1rem;
+    border-left: 3px solid var(--cta);
+    margin: 1rem 0;
+    background: rgba(255, 107, 107, 0.05);
+}
+
+/* Formula boxes */
+.formula-box {
+    background: var(--primary-dark);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.formula-box p {
+    margin: 0.5rem 0;
+    font-family: monospace;
+}
+
+/* Responsive table adjustments */
+@media (max-width: 768px) {
+    .comparison-table table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .example-table table {
+        font-size: 0.9rem;
+    }
+    
+    .visual-guide img {
+        width: 100%;
+    }
+}
+
+/* Add this to your CSS */
+.example-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--primary-dark);
+}
+
+.example-table th,
+.example-table td {
+    padding: 1rem;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    text-align: center;
+}
+
+.example-table th {
+    background-color: var(--neutral-dark);
+    color: var(--accent);
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.example-table tr:nth-child(even) {
+    background-color: rgba(255, 215, 0, 0.03);
+}
+
+.example-table td {
+    color: var(--neutral-light);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .example-table {
+        font-size: 0.9rem;
+    }
+    
+    .example-table th,
+    .example-table td {
+        padding: 0.8rem;
+    }
+}
+
+.pip-diagram {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+}
+
+.pip-diagram text {
+    user-select: none;
+}
+.calculation-diagram pre {
+    background: var(--primary-dark);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    color: var(--accent);
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 400px;
+    overflow-x: auto;
+}
