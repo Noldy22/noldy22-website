@@ -57,103 +57,110 @@
     <main class="lessons-container">
     <section class="section">
         <div class="lesson-header">
-            <h1 class="section-title">Lesson 2: Market Basics</h1>
-            <p class="lesson-objective"><strong>Objective:</strong> Master currency pair fundamentals, price calculations, and market terminology</p>
+            <h1 class="section-title">Lesson 2: Market Foundations</h1>
+            <p class="lesson-objective"><strong>You'll Learn:</strong> Core concepts every trader needs to understand currency values and trade effectively</p>
         </div>
 
         <!-- Currency Pairs Section -->
         <div class="lesson-card">
             <h2 class="lesson-title"><i class="fas fa-exchange-alt"></i> Currency Pairs</h2>
+            
+            <!-- Definition -->
             <div class="definition-box">
-                <h3>Definition:</h3>
-                <p>A currency pair represents the quotation of two different currencies, where the value of one currency (base) is quoted against the other (quote currency). Example: EUR/USD = 1.0850 means 1 Euro buys 1.0850 US Dollars.</p>
+                <h3>What Are Currency Pairs?</h3>
+                <p>A currency pair shows the value of one currency (base) against another (quote). <span class="accent">Always traded as a pair</span> because you're buying one currency while selling another.</p>
             </div>
 
-            <div class="key-concepts">
-                <h3>Detailed Breakdown:</h3>
-                <div class="concept-grid">
-                    <div class="concept-card">
-                        <h4><i class="fas fa-star"></i> Major Pairs (7)</h4>
-                        <ul>
-                            <li>EUR/USD (Euro/Dollar)</li>
-                            <li>USD/JPY (Dollar/Yen)</li>
-                            <li>GBP/USD (Pound/Dollar)</li>
-                            <li>USD/CHF (Dollar/Swiss Franc)</li>
-                            <li>USD/CAD (Dollar/Canadian Dollar)</li>
-                            <li>AUD/USD (Australian Dollar/Dollar)</li>
-                            <li>NZD/USD (New Zealand Dollar/Dollar)</li>
-                        </ul>
-                        <div class="stat-box">
-                            <p>Why They Matter:<br>
-                            • 80% liquidity concentration<br>
-                            • Average spread: 0.8-1.5 pips<br>
-                            • High news sensitivity</p>
-                        </div>
+            <!-- Example -->
+            <div class="real-world-example">
+                <h4><i class="fas fa-plane-departure"></i> Travel Example:</h4>
+                <p>If EUR/USD = 1.12:<br>
+                - Base Currency: 1 Euro<br>
+                - Quote Currency: 1.12 US Dollars<br>
+                You need $1.12 to buy €1</p>
+            </div>
+
+            <div class="concept-grid">
+                <!-- Major Pairs -->
+                <div class="concept-card">
+                    <h4><i class="fas fa-star"></i> Major Pairs</h4>
+                    <p><strong>Definition:</strong> Pairs containing USD + another major currency</p>
+                    <ul>
+                        <li>EUR/USD (Euro/Dollar)</li>
+                        <li>USD/JPY (Dollar/Yen)</li>
+                    </ul>
+                    <div class="stat-box">
+                        <p>Why They Matter:<br>
+                        • 80% of daily trades<br>
+                        • Spreads: 0.8-1.5 pips</p>
                     </div>
-                    
-                    <div class="concept-card">
-                        <h4><i class="fas fa-link"></i> Cross Pairs</h4>
-                        <p>Pairs without USD but still significant:</p>
-                        <div class="comparison-table">
-                            <table>
-                                <tr>
-                                    <th>Pair</th>
-                                    <th>Nickname</th>
-                                    <th>Average Daily Range</th>
-                                </tr>
-                                <tr>
-                                    <td>EUR/GBP</td>
-                                    <td>Euro-Pound</td>
-                                    <td>60 pips</td>
-                                </tr>
-                                <tr>
-                                    <td>AUD/JPY</td>
-                                    <td>Aussie-Yen</td>
-                                    <td>80 pips</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <p class="warning-note"><i class="fas fa-exclamation-triangle"></i> Note: Higher spreads (2-5 pips) due to lower liquidity</p>
+                </div>
+
+                <!-- Cross Pairs -->
+                <div class="concept-card">
+                    <h4><i class="fas fa-link"></i> Cross Pairs</h4>
+                    <p><strong>Definition:</strong> Pairs without USD</p>
+                    <div class="comparison-table">
+                        <table>
+                            <tr>
+                                <th>Pair</th>
+                                <th>Name</th>
+                                <th>Spread</th>
+                            </tr>
+                            <tr>
+                                <td>EUR/GBP</td>
+                                <td>Euro-Pound</td>
+                                <td>2-3 pips</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="example">
+                        <p><i class="fas fa-coins"></i> Example Trade:<br>
+                        Buy EUR/GBP at 0.8550 → Sell at 0.8575<br>
+                        Profit: 25 pips</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Pips and Lots Section -->
+        <!-- Pips Section -->
         <div class="lesson-card">
-            <h2 class="lesson-title"><i class="fas fa-calculator"></i> Pips & Lots</h2>
+            <h2 class="lesson-title"><i class="fas fa-ruler"></i> Understanding Pips</h2>
             
-            <div class="definition-box expanded">
-                <h3>Advanced Pip Understanding:</h3>
-                <p>1 pip = 0.0001 for most pairs, except JPY pairs where 1 pip = 0.01<br>
-                <strong>Example:</strong> EUR/USD moves from 1.0850 to 1.0851 = 1 pip movement<br>
-                USD/JPY moves from 150.00 to 150.01 = 1 pip movement</p>
+            <!-- Definition -->
+            <div class="definition-box">
+                <h3>What's a Pip?</h3>
+                <p><strong>Pip</strong> = Smallest price movement in forex, usually 0.0001 (except JPY pairs: 0.01)</p>
             </div>
 
+            <!-- Example -->
             <div class="calculation-example">
-                <h4>Pip Value Formula:</h4>
-                <div class="formula-box">
-                    <p>Pip Value = (1 pip / Exchange Rate) × Lot Size</p>
-                    <p><strong>USD/CHF Example:</strong><br>
-                    0.0001 / 0.9100 × 100,000 = $10.99 per pip</p>
+                <h4><i class="fas fa-calculator"></i> Pip Calculation:</h4>
+                <div class="math-steps">
+                    <p><strong>For EUR/USD:</strong><br>
+                    1.0850 → 1.0855 = <span class="accent">5 pips</span></p>
+                    <p><strong>For USD/JPY:</strong><br>
+                    150.00 → 150.05 = <span class="accent">5 pips</span></p>
                 </div>
-                <div class="visual-guide">
+            </div>
+
+            <div class="visual-guide">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="pip-diagram">
-        <!-- Main frame with increased height -->
+        <!-- Main container frame -->
         <rect x="40" y="20" width="320" height="260" fill="none" stroke="#FFD700" stroke-width="2" rx="8"/>
         
-        <!-- Top content -->
+        <!-- Main heading -->
         <text x="200" y="70" text-anchor="middle" fill="#FFD700" font-family="'Roboto Condensed', sans-serif" font-size="18">
             <tspan x="200" dy="0">1 Standard Lot = 100,000 Units</tspan>
             <tspan x="200" dy="30">1 Pip = 0.0001 (for most pairs)</tspan>
         </text>
         
-        <!-- Middle divider -->
+        <!-- Central divider line -->
         <path stroke="#FFD700" stroke-width="2" d="M80 130 L320 130" />
         <circle cx="80" cy="130" r="5" fill="#FFD700"/>
         <circle cx="320" cy="130" r="5" fill="#FFD700"/>
         
-        <!-- Central calculation -->
+        <!-- Main calculation -->
         <text x="200" y="170" text-anchor="middle" fill="#FFD700" font-family="monospace" font-size="16">
             $10 = (0.0001 × 100,000)
         </text>
@@ -167,139 +174,103 @@
     </svg>
     <p class="image-caption">Visual representation of pip value calculation</p>
 </div>
+        </div>
+
+        <!-- Lots Section -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-boxes"></i> Lot Sizes</h2>
+            
+            <!-- Definition -->
+            <div class="definition-box">
+                <h3>What is a Lot?</h3>
+                <p><strong>Lot</strong> = Trade size measurement. <span class="accent">1 standard lot = 100,000 units</span></p>
             </div>
 
+            <!-- Example -->
             <div class="lot-types">
-                <h3>Lot Size Comparison Table</h3>
-                <div class="comparison-table">
-                    <table>
-                        <tr>
-                            <th>Lot Type</th>
-                            <th>Units</th>
-                            <th>Margin Required*</th>
-                            <th>Risk Profile</th>
-                        </tr>
-                        <tr>
-                            <td>Standard</td>
-                            <td>100,000</td>
-                            <td>$1,000</td>
-                            <td>High</td>
-                        </tr>
-                        <tr>
-                            <td>Mini</td>
-                            <td>10,000</td>
-                            <td>$100</td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
-                            <td>Micro</td>
-                            <td>1,000</td>
-                            <td>$10</td>
-                            <td>Low</td>
-                        </tr>
-                    </table>
-                    <p class="disclaimer">*Assuming 1:100 leverage</p>
+                <div class="lot-card">
+                    <h4>Micro Lot</h4>
+                    <p><strong>Definition:</strong> 1,000 units (0.01 standard)</p>
+                    <div class="example">
+                        <p><i class="fas fa-coffee"></i> Example:<br>
+                        10 pips × $0.10 = $1 profit</p>
+                    </div>
+                </div>
+                <div class="lot-card">
+                    <h4>Standard Lot</h4>
+                    <p><strong>Definition:</strong> 100,000 units</p>
+                    <div class="example">
+                        <p><i class="fas fa-chart-line"></i> Example:<br>
+                        10 pips × $10 = $100 profit</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Bid/Ask Prices Section -->
+        <!-- Bid/Ask Section -->
         <div class="lesson-card">
-            <h2 class="lesson-title"><i class="fas fa-balance-scale"></i> Bid/Ask Dynamics</h2>
+            <h2 class="lesson-title"><i class="fas fa-balance-scale"></i> Bid/Ask Prices</h2>
             
-            <div class="price-definitions expanded">
-                <div class="price-card">
-                    <h4>Bid Price Mechanics</h4>
-                    <p>The maximum price buyers will pay for currency:<br>
-                    <strong>Market Maker Perspective:</strong> The price at which they'll buy from you</p>
-                    <div class="example">
-                        <p>If Bid = 1.0850, selling EUR returns $1.0850 per €1</p>
-                    </div>
-                </div>
-                <div class="price-card">
-                    <h4>Ask Price Mechanics</h4>
-                    <p>The minimum price sellers will accept:<br>
-                    <strong>Market Maker Perspective:</strong> The price at which they'll sell to you</p>
-                    <div class="example">
-                        <p>If Ask = 1.0852, buying EUR costs $1.0852 per €1</p>
-                    </div>
-                </div>
+            <!-- Definitions -->
+            <div class="definition-box">
+                <h3>Key Terms:</h3>
+                <ul>
+                    <li><strong>Bid:</strong> Price buyers will pay (you sell here)</li>
+                    <li><strong>Ask:</strong> Price sellers will accept (you buy here)</li>
+                    <li><strong>Spread:</strong> Difference between Bid/Ask</li>
+                </ul>
             </div>
 
-            <div class="spread-section">
-                <h3>Spread Analysis</h3>
-                <div class="spread-factors">
-                    <h4>What Affects Spreads?</h4>
-                    <ul>
-                        <li><strong>Liquidity:</strong> Major pairs < Exotic pairs</li>
-                        <li><strong>Market Hours:</strong> Spreads widen during off-hours</li>
-                        <li><strong>Volatility:</strong> News events increase spreads</li>
-                    </ul>
-                </div>
-                <div class="real-world-example">
-                    <h4>Live Market Example</h4>
-                    <div class="price-ticker">
-                        <div class="currency-pair">EUR/USD</div>
-                        <div class="bid-ask">
-                            <span class="bid">1.0850</span>
-                            <span class="spread">+2</span>
-                            <span class="ask">1.0852</span>
-                        </div>
+            <!-- Example -->
+            <div class="price-ticker-example">
+                <h4><i class="fas fa-chart-bar"></i> Live Market Example:</h4>
+                <div class="price-ticker">
+                    <div class="currency-pair">EUR/USD</div>
+                    <div class="prices">
+                        <span class="bid">1.0850</span>
+                        <span class="spread">+2</span>
+                        <span class="ask">1.0852</span>
                     </div>
-                    <p>Cost Analysis: Opening and closing 1 standard lot position costs $20 (2 pips × $10/pip)</p>
                 </div>
+                <p><strong>Trade Cost:</strong> 2 pips × $10 = $20 per standard lot</p>
             </div>
         </div>
 
         <!-- Interactive Section -->
         <div class="lesson-card interactive-section">
-            <h2 class="lesson-title"><i class="fas fa-brain"></i> Applied Learning</h2>
+            <h2 class="lesson-title"><i class="fas fa-brain"></i> Test Your Knowledge</h2>
             
-            <div class="quiz-container expanded">
-                <div class="quiz-question">
-                    <p>1. Calculate pip value for 2 mini lots of GBP/USD at 1.2700:</p>
-                    <div class="options">
-                        <button class="quiz-option">$2</button>
-                        <button class="quiz-option correct">$20</button>
-                        <button class="quiz-option">$200</button>
-                        <div class="hint">Hint: (0.0001/1.2700) × 20,000 units</div>
-                    </div>
+            <!-- Quiz with Definitions -->
+            <div class="quiz-question">
+                <h4>Q1: If GBP/USD moves from 1.2750 to 1.2775 with 2 mini lots:</h4>
+                <div class="options">
+                    <button class="quiz-option">$25 profit</button>
+                    <button class="quiz-option correct">$50 profit</button>
                 </div>
-
-                <div class="quiz-question scenario">
-                    <p>2. During NFP announcement:<br>
-                    - Previous spread: 1.2 pips<br>
-                    - Current spread: 5.8 pips<br>
-                    How much more does it cost to trade 3 standard lots?</p>
-                    <div class="calculation-workspace">
-                        <p>Extra Cost = (5.8 - 1.2) × $10 × 3 = $138</p>
-                    </div>
+                <div class="explanation">
+                    <p><strong>Why?</strong><br>
+                    25 pips × $2 per pip (2 mini lots) = $50</p>
                 </div>
             </div>
 
-            <div class="analogy-section expanded">
-                <h3>Market Maker Analogy</h3>
-                <div class="analogy-card">
-                    <p>"Imagine a currency exchange booth at an airport:<br>
-                    • Bid Price = What they pay for your foreign currency<br>
-                    • Ask Price = What they charge for local currency<br>
-                    • Spread = Their profit margin<br>
-                    The busier the airport (market volatility), the wider their spread!"</p>
-                </div>
+            <!-- Definition-Based Analogy -->
+            <div class="analogy-card">
+                <h4><i class="fas fa-store"></i> Bid/Ask Analogy:</h4>
+                <p>Like selling a used phone:<br>
+                - <strong>Bid:</strong> What buyers offer ($300)<br>
+                - <strong>Ask:</strong> What you want ($320)<br>
+                - <strong>Spread:</strong> $20 difference</p>
             </div>
         </div>
 
         <!-- Next Steps -->
-        <div class="next-steps expanded">
-            <h3>Practical Application</h3>
+        <div class="next-steps">
             <div class="homework-box">
-                <p><strong>Assignment:</strong><br>
-                1. Compare spreads on EUR/USD during London vs. Tokyo sessions<br>
-                2. Calculate pip values for 0.75 lots on USD/JPY 149.50</p>
-                
-                <p><strong>Critical Thinking:</strong><br>
-                "How does lot size selection impact risk management?<br>
-                Why might a trader choose micro lots over standard lots?"</p>
+                <h4><i class="fas fa-book"></i> Homework:</h4>
+                <ul>
+                    <li>Define "pip" in your own words</li>
+                    <li>Calculate profit for 0.5 lots EUR/USD moving 30 pips</li>
+                </ul>
             </div>
             <a href="lesson-3.html" class="lesson-button">Next: Trading Mechanics →</a>
         </div>
