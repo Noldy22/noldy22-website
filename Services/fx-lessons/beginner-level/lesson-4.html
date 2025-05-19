@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="description" content="Learn Forex market basics: currency pairs, pips, lots, and bid/ask prices. Essential knowledge for Forex beginners.">
+    <title>Lesson 3: Trading Mechanics | Noldy22</title>
+    <link rel="stylesheet" href="../../../noldy22.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicon Links (same structure as previous pages) -->
+    <link rel="icon" type="image/png" href="../../../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg" />
+    <link rel="shortcut icon" href="../../../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Noldy22" />
+    <link rel="manifest" href="../../../images/site.webmanifest" />
+</head>
+<body>
+    <header>
+        <h1 class="header"><a href="../../../index.html"><img src="../../../images/Noldy22 logo.png" class="logo" alt="Noldy22 logo"></a></h1>
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul>
+                <li><a href="../../../index.html">Home</a></li>
+                
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a href="../../../Products/products.html">Products</a>
+                        <button class="dropdown-toggle" aria-label="Toggle products menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../../Products/mt5EAs.html">MT5 Expert Advisors</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a class="current" href="../../Services.html">Services</a>
+                        <button class="dropdown-toggle" aria-label="Toggle services menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a class="current" href="../../ForexLessons.html">Forex Lessons</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="../../../about-Noldy22.html">About</a></li>
+                <li><a href="../../../contact-Noldy22.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="lessons-container">
+    <section class="section">
+        <div class="lesson-header">
+            <h1 class="section-title">Lesson 4: Technical Analysis Basics</h1>
+            <p class="lesson-objective"><strong>You'll Learn:</strong> How to read price charts like professional traders</p>
+        </div>
+
+        <!-- Chart Types -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-chart-line"></i> Understanding Chart Types</h2>
+            
+            <div class="chart-comparison">
+                <div class="chart-example">
+                    <img src="images/line-chart.png" alt="MetaTrader line chart example" class="mt5-chart">
+                    <div class="chart-caption">
+                        <h4>Line Chart</h4>
+                        <p>Shows closing prices connected in a single line</p>
+                    </div>
+                </div>
+                
+                <div class="chart-example">
+                    <img src="images/candlesticks-chart.png" alt="MetaTrader candlestick chart" class="mt5-chart">
+                    <div class="chart-caption">
+                        <h4>Candlestick Chart</h4>
+                        <p>Visualizes open, high, low, and close prices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support & Resistance -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-arrows-alt-v"></i> Support & Resistance Zones</h2>
+            
+            <div class="definition-box">
+                <h3>What Are Support & Resistance?</h3>
+                <ul class="feature-list">
+                    <li><strong>Support:</strong> Price level where buying interest is strong enough to prevent further decline</li>
+                    <li><strong>Resistance:</strong> Price level where selling pressure is strong enough to prevent further rise</li>
+                    <li>These levels form because traders remember where prices reversed previously</li>
+                </ul>
+            </div>
+
+            <div class="sr-example">
+                <img src="images/support-n-resistance.png" alt="Support and resistance levels on MT5" class="mt5-chart">
+                <div class="sr-annotations">
+                    <div class="support-label">Support Level<br>1.04805</div>
+                    <div class="resistance-label">Resistance Level<br>1.05265</div>
+                </div>
+            </div>
+
+            <div class="sr-explanation">
+                <h4>Key Characteristics:</h4>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h5>Strength Factors</h5>
+                        <ul>
+                            <li>More touches = stronger level</li>
+                            <li>Longer timeframes = more significant</li>
+                            <li>Volume spikes confirm validity</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h5>Real Market Example</h5>
+                        <p>EUR/USD bounced 3+ times at 1.04805 support</p>
+                    </div>
+                </div>
+                <div class="pro-tip">
+                    <i class="fas fa-lightbulb"></i> Think of support/resistance like a basketball court - price bounces between floor (support) and ceiling (resistance)
+                </div>
+            </div>
+        </div>
+
+        <!-- Trend Analysis -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-chart-area"></i> Identifying Trends</h2>
+            
+            <div class="definition-box">
+                <h3>What Makes a Trend?</h3>
+                <ul class="feature-list">
+                    <li><strong>Uptrend:</strong> Series of higher highs (HH) and higher lows (HL)</li>
+                    <li><strong>Downtrend:</strong> Series of lower highs (LH) and lower lows (LL)</li>
+                    <li><strong>Sideways:</strong> Price moves between horizontal support/resistance</li>
+                </ul>
+            </div>
+
+            <div class="trend-analysis">
+                <div class="trend-example">
+                    <img src="images/uptrend.png" alt="Uptrend example from MetaTrader" class="mt5-chart">
+                    <div class="trend-caption">
+                        <h4>Uptrend Features</h4>
+                        <ul class="feature-list">
+                            <li>Price stays above rising trendline</li>
+                            <li>Moving averages slope upward</li>
+                            <li>Bullish chart patterns (cup & handle, flags)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="trend-example">
+                    <img src="images/down-trend.png" alt="Downtrend example from MetaTrader" class="mt5-chart">
+                    <div class="trend-caption">
+                        <h4>Downtrend Features</h4>
+                        <ul class="feature-list">
+                            <li>Price stays below descending trendline</li>
+                            <li>Moving averages slope downward</li>
+                            <li>Bearish chart patterns (head & shoulders, triangles)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trend-tips">
+                <h4>Pro Trading Tips:</h4>
+                <div class="tip-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-wave-square"></i>
+                        <p>Trends exist in all timeframes - daily trends are stronger than hourly</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        <p>Average trend duration: 3-6 months for major currencies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Indicators -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-indicator"></i> Key Indicators</h2>
+            
+            <div class="indicator-example">
+                <img src="images/moving-averages.png" alt="Moving average on MT5 chart" class="mt5-chart">
+                <div class="indicator-details">
+                    <h4>Moving Averages (MA)</h4>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h5>Types of MA</h5>
+                            <ul>
+                                <li><strong>SMA:</strong> Simple MA (average closing prices)</li>
+                                <li><strong>EMA:</strong> Exponential MA (weights recent prices more)</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h5>Common Uses</h5>
+                            <ul>
+                                <li>50 & 200 MA crossover signals trend changes</li>
+                                <li>Price above MA = uptrend confirmation</li>
+                                <li>Dynamic support/resistance levels</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <p><strong>Current Chart:</strong> 200 SMA (green) acts as resistance, 50 EMA (red) acts as support</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="indicator-example">
+                <img src="images/RSI.png" alt="RSI indicator on MT5" class="mt5-chart">
+                <div class="indicator-details">
+                    <h4>Relative Strength Index (RSI)</h4>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h5>Key Levels</h5>
+                            <ul>
+                                <li>Overbought: Above 70</li>
+                                <li>Oversold: Below 30</li>
+                                <li>Divergence signals reversals</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h5>Calculation</h5>
+                            <p>RSI = 100 - (100 / (1 + Average Gain / Average Loss))<br>
+                            <em>Typically calculated over 14 periods</em></p>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <p><strong>Current Chart:</strong> RSI bouncing from 30 indicates potential bullish reversal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="indicator-warning">
+                <i class="fas fa-exclamation-triangle"></i> Remember: Indicators lag price action - always confirm with price patterns!
+            </div>
+        </div>
+
+        <!-- Interactive Section -->            
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <div class="homework-box">
+                <h4><i class="fas fa-tasks"></i> Your Trading Homework:</h4>
+                <ul class="hw-list">
+                    <li>Analyze EUR/USD daily chart</li>
+                    <li>Identify 1 support/resistance level</li>
+                    <li>Calculate 5-day moving average</li>
+                </ul>
+            </div>
+            <a href="lesson-5.html" class="lesson-button">Next: Candlestick Patterns →</a>
+        </div>
+    </section>
+</main>
+    <!-- Same footer as previous pages -->
+    <footer>
+        <p>&copy; 2025 Noldy22.</p>
+        <p>All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/message/RUOEAFKTDCD4L1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/_noldy22?igsh=MTQxNnBtbHVweXI3Zg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/14vhKbHLG9/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/MinjaAnold?t=xmTaX1P-9pwbKkZcdJFAvw&s=09" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="../../../noldy22.js"></script>
+</body>
+</html>
