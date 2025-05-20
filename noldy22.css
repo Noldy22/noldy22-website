@@ -1894,3 +1894,34 @@ footer {
   margin-top: 1rem;
   width: 100%;
 }
+/* Add to your existing form styles */
+#passwordResetModal .form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+#passwordResetModal .form-group input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: var(--primary-dark);
+  border: 2px solid rgba(255, 215, 0, 0.1);
+  border-radius: 8px;
+  color: var(--neutral-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#passwordResetModal .form-group input:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+#passwordResetModal .input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  opacity: 0.7;
+}

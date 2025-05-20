@@ -66,14 +66,16 @@
         <p id="alertMessage"></p>
     </div>
 </div>
-<!-- Add this just before </body> -->
 <div id="passwordResetModal">
   <div class="alert-content">
     <span class="close-alert" id="closeResetModal">&times;</span>
     <h3>Reset Your Password</h3>
-    <input type="email" id="resetEmail" placeholder="Enter your registered email">
+    <div class="form-group"> <!-- Added form-group container -->
+      <input type="email" id="resetEmail" placeholder="Email Address" required>
+      <i class="fas fa-envelope input-icon"></i> <!-- Added envelope icon -->
+    </div>
     <button id="submitResetEmail" class="btn btn-block">
-      <i class="fas fa-key"></i> Send Reset Link
+      <i class="fas fa-paper-plane"></i> Send Reset Link
     </button>
   </div>
 </div>
