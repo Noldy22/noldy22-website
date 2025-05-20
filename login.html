@@ -66,13 +66,15 @@
         <p id="alertMessage"></p>
     </div>
 </div>
-<!-- Add this modal for password reset -->
-<div id="passwordResetModal" class="alert-container" style="display: none;">
+<!-- Add this just before </body> -->
+<div id="passwordResetModal">
   <div class="alert-content">
     <span class="close-alert" id="closeResetModal">&times;</span>
-    <h3>Reset Password</h3>
-    <input type="email" id="resetEmail" placeholder="Enter your email">
-    <button id="submitResetEmail" class="btn btn-block">Send Reset Link</button>
+    <h3>Reset Your Password</h3>
+    <input type="email" id="resetEmail" placeholder="Enter your registered email">
+    <button id="submitResetEmail" class="btn btn-block">
+      <i class="fas fa-key"></i> Send Reset Link
+    </button>
   </div>
 </div>
 </body>
