@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="description" content="Intermediate Forex trading lesson: Advanced Position Sizing, Volatility-Based Risk, and Portfolio Hedging by Noldy22. Learn to optimize trade size, manage risk with volatility, and hedge your portfolio for robust trading.">
+    <title>Lesson 3: Risk Management Mastery | Noldy22</title>
+    <link rel="stylesheet" href="../../../noldy22.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="../../../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg" />
+    <link rel="shortcut icon" href="../../../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Noldy22" />
+    <link rel="manifest" href="../../../images/site.webmanifest" />
+</head>
+<body>
+    <header>
+        <h1 class="header"><a href="../../../index.html"><img src="../../../images/Noldy22 logo.png" class="logo" alt="Noldy22 logo"></a></h1>
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul>
+                <li><a href="../../../index.html">Home</a></li>
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a href="../../../Products/products.html">Products</a>
+                        <button class="dropdown-toggle" aria-label="Toggle products menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../../Products/mt5EAs.html">MT5 Expert Advisors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a class="current" href="../../Services.html">Services</a>
+                        <button class="dropdown-toggle" aria-label="Toggle services menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a class="current" href="../../ForexLessons.html">Forex Lessons</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../../about-Noldy22.html">About</a></li>
+                <li><a href="../../../contact-Noldy22.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="lessons-container">
+    <section class="section">
+        <div class="lesson-header">
+            <h1 class="section-title">Risk Management Mastery</h1>
+            <p class="lesson-objective"><strong>You'll Master:</strong> Advanced position sizing, volatility-based risk management, and portfolio hedging strategies</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-shield-alt"></i> Why Go Beyond Basics?</h2>
+            <div class="definition-box">
+                <p>Advanced risk management is essential for consistent profitability as your trading evolves. By adapting your position size to volatility and hedging your portfolio, you can better withstand market shocks and optimize returns.</p>
+            </div>
+        </div>
+
+        <!-- Advanced Position Sizing -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-balance-scale"></i> 1. Advanced Position Sizing</h2>
+            <div class="definition-box">
+                <h3>Dynamic Sizing:</h3>
+                <p>Instead of fixed lot sizes, adjust your position based on trade risk and account equity. This approach keeps your risk consistent as your account grows or shrinks.</p>
+            </div>
+            <div class="pattern-types">
+                <div class="pattern-category">
+                    <h4 class="bullish"><i class="fas fa-ruler-combined"></i> Kelly Criterion Example</h4>
+                    <ul class="pattern-rules">
+                        <li>Kelly % = Win Rate - [(1 - Win Rate) / Risk-Reward Ratio]</li>
+                        <li>Use a fraction of Kelly for safety (e.g., 50%)</li>
+                        <li>Example: Win rate 55%, RR 2:1 → Kelly % = 0.55 - (0.45/2) = 0.325 or 32.5%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Volatility-Based Risk -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-wave-square"></i> 2. Volatility-Based Risk</h2>
+            <div class="definition-box">
+                <h3>Adapting to Market Conditions:</h3>
+                <p>Use volatility indicators (like ATR) to set stop-losses and position sizes. Higher volatility means wider stops and smaller positions; lower volatility allows tighter stops and larger positions.</p>
+            </div>
+            <div class="pattern-types">
+                <div class="pattern-category">
+                    <h4 class="bullish"><i class="fas fa-chart-area"></i> ATR-Based Example</h4>
+                    <ul class="pattern-rules">
+                        <li>ATR (14) = 50 pips</li>
+                        <li>Set stop-loss = 1.5 × ATR = 75 pips</li>
+                        <li>Position size = (Account Risk $) / (Stop-Loss in Pips × Pip Value)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Hedging -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-network-wired"></i> 3. Portfolio Hedging</h2>
+            <div class="definition-box">
+                <h3>Reducing Overall Risk:</h3>
+                <p>Hedging involves opening positions that offset risk in your portfolio. This can be done by trading negatively correlated pairs or using options/futures to protect against adverse moves.</p>
+            </div>
+            <div class="pattern-types">
+                <div class="pattern-category">
+                    <h4 class="bullish"><i class="fas fa-random"></i> Hedging Example</h4>
+                    <ul class="pattern-rules">
+                        <li>Long EUR/USD and short GBP/USD (correlated pairs)</li>
+                        <li>Buy a put option to protect a long position</li>
+                        <li>Balance exposure across currencies to avoid concentration risk</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk Management Checklist -->
+        <div class="lesson-card">
+            <h2 class="lesson-title"><i class="fas fa-clipboard-check"></i> 4. Advanced Risk Checklist</h2>
+            <div class="pattern-types">
+                <div class="pattern-category">
+                    <ul class="pattern-rules">
+                        <li>☑️ Position size adapts to account equity and risk</li>
+                        <li>☑️ Stop-loss set using volatility (ATR or similar)</li>
+                        <li>☑️ Portfolio exposure is diversified and hedged</li>
+                        <li>☑️ Risk per trade and total portfolio risk are monitored</li>
+                        <li>☑️ No overexposure to correlated assets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Zone -->
+        <div class="lesson-card interactive-section">
+            <h2 class="lesson-title"><i class="fas fa-dumbbell"></i> Practice Zone</h2>
+            <div class="homework-box">
+                <h4><i class="fas fa-book-open"></i> Homework:</h4>
+                <ul class="hw-list">
+                    <li>Calculate position size for 3 trades using ATR-based stops</li>
+                    <li>Identify correlated pairs in your portfolio and plan a hedge</li>
+                    <li>Review your last 10 trades for volatility and correlation risk</li>
+                </ul>
+                <p class="motivation-text"><i class="fas fa-lightbulb"></i> Next Step: Apply volatility-based risk in your next demo trades!</p>
+            </div>
+        </div>
+
+        <!-- Next Lesson -->
+        <div class="next-steps">
+            <a href="lesson-4.html" class="lesson-button">Next: Market Correlation →</a>
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <p>&copy; 2025 Noldy22.</p>
+        <p>All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/message/RUOEAFKTDCD4L1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/_noldy22?igsh=MTQxNnBtbHVweXI3Zg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/14vhKbHLG9/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/MinjaAnold?t=xmTaX1P-9pwbKkZcdJFAvw&s=09" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="../../../noldy22.js"></script>
+</body>
+</html>
