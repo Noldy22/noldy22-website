@@ -2069,3 +2069,135 @@ footer {
 .candle.red { background: #e74c3c }
 .candle.green { background: #2ecc71 }
 .candle.hammer { background: #2ecc71; height: 80px }
+
+.learn-section {
+    background-color: rgba(255, 215, 0, 0.05);
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.learn-list {
+    list-style: none;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding: 0;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.learn-list li {
+    font-size: 1.1rem;
+    color: var(--neutral-light);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    justify-content: center;
+}
+
+.learn-list i {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.why-noldy {
+    background-color: var(--neutral-dark);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+}
+
+.why-card {
+    background: rgba(255, 215, 0, 0.05);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.why-card i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.why-card h3 {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.why-card p {
+    font-size: 1rem;
+    color: var(--neutral-light);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+.cta-banner {
+    background: linear-gradient(90deg, rgba(255,215,0,0.05), rgba(10,25,47,1));
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 2px solid rgba(255,215,0,0.1);
+    border-bottom: 2px solid rgba(255,215,0,0.1);
+}
+
+.cta-banner h2 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.cta-banner p {
+    color: var(--neutral-light);
+    opacity: 0.9;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cta-buttons .btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+}
+.hero-heading {
+    font-size: 2.5rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: var(--accent);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    align-items: center;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.hero-heading .dot {
+    font-size: 1.8rem;
+    color: var(--accent);
+    opacity: 0.6;
+    transform: translateY(-2px);
+}
