@@ -2201,3 +2201,177 @@ footer {
     opacity: 0.6;
     transform: translateY(-2px);
 }
+/* Styling for conditions/points layout in Modules 2, 3 & 4 */
+.conditions-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+    gap: 20px; /* Space between the condition items */
+    margin-top: 15px;
+    list-style: none; /* Remove default ul/ol styling if applied elsewhere */
+    padding: 0; /* Remove default ul/ol padding */
+}
+
+.condition-group {
+    flex: 1 1 calc(50% - 10px); /* Attempts to make two columns, accounting for gap */
+    min-width: 280px; /* Minimum width before wrapping to single column */
+    background-color: var(--card-background-color); /* Use your theme's card background */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: var(--text-color); /* Use your theme's text color */
+}
+
+.condition-group.full-width {
+    flex: 1 1 100%; /* Makes this item take full width */
+}
+
+.condition-group p {
+    margin: 0; /* Remove default paragraph margins within these groups */
+    line-height: 1.6;
+}
+
+.condition-group .fas {
+    margin-right: 8px; /* Space between icon and text */
+    color: var(--accent-color); /* Your theme's accent color for icons */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .condition-group {
+        flex: 1 1 100%; /* Stack all conditions on smaller screens */
+    }
+}
+
+/* Specific styling for the Premium/Discount zones, using .learn-list as a base */
+/* This is a new rule for image_ed1d42.png section */
+.premium-discount-list {
+    display: flex;
+    flex-direction: column; /* Stack items by default */
+    gap: 10px; /* Space between items */
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.premium-discount-list li {
+    background-color: var(--card-background-color);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: flex-start; /* Align icon and text at the top */
+}
+
+.premium-discount-list li .fas {
+    margin-right: 10px;
+    color: var(--accent-color);
+    font-size: 1.2em; /* Slightly larger icon */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    padding-top: 2px; /* Align icon better with text */
+}
+
+.premium-discount-list li p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* For larger screens, attempt a two-column layout for some parts */
+@media (min-width: 769px) {
+    .premium-discount-list {
+        flex-direction: row; /* Layout items in a row */
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: space-between; /* Distribute items with space */
+    }
+    .premium-discount-list li {
+        flex: 1 1 calc(50% - 10px); /* Two columns */
+        max-width: calc(50% - 10px); /* Ensure max width for two columns */
+    }
+    /* Make Equilibrium take full width or align differently */
+    .premium-discount-list li:first-child { /* Target Equilibrium specifically */
+        flex: 1 1 100%; /* Make it full width */
+        max-width: 100%;
+        text-align: center; /* Center equilibrium text */
+        justify-content: center; /* Center content horizontally */
+    }
+}
+
+/* Small screen adjustments for premium-discount-list */
+@media (max-width: 480px) {
+    .premium-discount-list li {
+        padding: 10px 15px;
+    }
+}
+/* General styling for structured content blocks */
+.concept-grid,
+.conditions-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+    gap: 20px; /* Space between the items */
+    margin-top: 15px;
+    list-style: none; /* Remove default ul/ol styling if applied elsewhere */
+    padding: 0; /* Remove default ul/ol padding */
+}
+
+.concept-card,
+.condition-group {
+    flex: 1 1 calc(50% - 10px); /* Attempts to make two columns, accounting for gap */
+    min-width: 280px; /* Minimum width before wrapping to single column */
+    background-color: var(--card-background-color); /* Use your theme's card background */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: var(--text-color); /* Use your theme's text color */
+}
+
+.condition-group.full-width {
+    flex: 1 1 100%; /* Makes this item take full width */
+}
+
+.concept-card h4,
+.condition-group h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--heading-color); /* Use your theme's heading color */
+}
+
+.concept-card p,
+.condition-group p {
+    margin: 0; /* Remove default paragraph margins within these groups */
+    line-height: 1.6;
+}
+
+.concept-card .fas,
+.condition-group .fas {
+    margin-right: 8px; /* Space between icon and text */
+    color: var(--accent-color); /* Your theme's accent color for icons */
+}
+
+/* For lists within cards, like the "Example of Strong Confluence" */
+.learn-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.learn-list li {
+    display: flex;
+    align-items: flex-start; /* Align icon and text at the top */
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.learn-list li .fas {
+    margin-right: 10px;
+    color: var(--accent-color);
+    font-size: 1em;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    padding-top: 2px; /* Adjust icon vertical alignment */
+}
+
+/* Adjustments for smaller screens to ensure stacking */
+@media (max-width: 768px) {
+    .concept-card,
+    .condition-group {
+        flex: 1 1 100%; /* Stack all conditions/concepts on smaller screens */
+    }
+}

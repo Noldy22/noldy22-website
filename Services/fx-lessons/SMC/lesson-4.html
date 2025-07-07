@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="module" src="../../../auth-button.js" defer></script> 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="description" content="Explore advanced Smart Money Concepts (SMC) like Displacement, Mitigation Blocks, Breaker Blocks, and Price Delivery (Premium/Discount Arrays). Refine your market analysis skills.">
+    <title>SMC Module 4: Advanced Concepts | Noldy22</title>
+    <link rel="stylesheet" href="../../../noldy22.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="../../../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../images/favicon.svg" />
+    <link rel="shortcut icon" href="../../../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Noldy22" />
+    <link rel="manifest" href="../../../images/site.webmanifest" />
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Smart Money Concepts Module 4: Advanced Concepts - POIs & Imbalances",
+      "description": "This module introduces advanced SMC concepts: identifying Points of Interest (POIs) like Order Blocks and understanding market inefficiencies (Imbalances/FVGs).",
+      "provider": {
+        "@type": "Organization",
+        "name": "Noldy22",
+        "url": "https://noldy22.com"
+      },
+      "url": "https://noldy22.com/Services/fx-lessons/SMC/lesson-4.html",
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Understanding Order Blocks (OBs)",
+          "url": "https://noldy22.com/Services/fx-lessons/SMC/lesson-4.html#order-blocks"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Fair Value Gaps (FVG) / Imbalances",
+          "url": "https://noldy22.com/Services/fx-lessons/SMC/lesson-4.html#fvg-imbalances"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Mitigation Blocks & Breaker Blocks",
+          "url": "https://noldy22.com/Services/fx-lessons/SMC/lesson-4.html#mitigation-breaker"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Premium & Discount Zones",
+          "url": "https://noldy22.com/Services/fx-lessons/SMC/lesson-4.html#premium-discount"
+        }
+      ]
+    }
+</script>
+    </head>
+<body>
+    <header>
+        <h1 class="header"><a href="../../../index.html"><img src="../../../images/Noldy22 logo.png" class="logo" alt="Noldy22 logo"></a></h1>
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul>
+                <li><a href="../../../index.html">Home</a></li>
+                
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a href="../../../Products/products.html">Products</a>
+                        <button class="dropdown-toggle" aria-label="Toggle products menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../../Products/mt5EAs.html">MT5 Expert Advisors</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a class="current" href="../../Services.html">Services</a>
+                        <button class="dropdown-toggle" aria-label="Toggle services menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="../ForexLessons.html">Forex Lessons</a></li>
+                        <li><a class="current" href="SMC-Lessons.html">Smart Money Concepts</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="../../../about-Noldy22.html">About</a></li>
+                <li><a href="../../../contact-Noldy22.html">Contact</a></li>
+                <li><a id="authLink" href="../../../login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="lessons-container">
+        <section class="section">
+            <div class="lesson-header">
+                <h1 class="section-title">Module 4: Core SMC - Advanced Concepts</h1>
+                <p class="lesson-objective"><b>You'll Learn:</b> Deeper insights into price action with Displacement, Mitigation Blocks, Breaker Blocks, and how to identify optimal entry points using Premium & Discount zones.</p>
+            </div>
+
+            <div class="lesson-card" id="displacement">
+                <h2 class="lesson-title"><i class="fas fa-arrow-right-from-bracket"></i> Displacement: The Confirmatory Move</h2>
+                <div class="explanation-box">
+                    <p><b>Displacement</b> refers to a strong, aggressive, and efficient movement in price after an Order Block has been initiated or liquidity has been swept. It's characterized by large-bodied candles that move swiftly away from a key area, often leaving Fair Value Gaps (FVGs) behind.</p>
+                    <p>Displacement is crucial because it acts as a <b>confirmation</b> of institutional involvement. When you see price displace strongly after interacting with an Order Block or sweeping liquidity, it signals that Smart Money has entered the market with conviction, pushing price in their intended direction. This validates the Order Block and any resulting FVG.</p>
+                    <div class="analogy-card">
+                        <p><span class="accent">Imagine a rock thrown into water:</span> The initial splash is the order block or liquidity sweep. The ripples quickly spreading outwards are the displacement, showing the force behind the action.</p>
+                    </div>
+                    <div class="warning-note">
+                        <p><i class="fas fa-exclamation-triangle"></i> Without displacement, an Order Block or FVG has less significance. Look for this strong move to confirm the institutional footprint.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-card" id="mitigation-blocks">
+                <h2 class="lesson-title"><i class="fas fa-hand-holding-usd"></i> Mitigation Blocks: Unfilled Orders</h2>
+                <div class="explanation-box">
+                    <p>A <b>Mitigation Block</b> is a type of Order Block that was initially expected to hold as support or resistance, but price traded right through it without fully mitigating the institutional orders within. When price later returns to this broken Order Block, it's returning to "mitigate" or fill those remaining, previously unfilled orders before continuing its move.</p>
+                    <p>Essentially, it's a failed Order Block (from one perspective) that becomes a significant point of interest (POI) for a re-entry or continuation trade from the institutional perspective. Institutions use these areas to balance their books.</p>
+                    <div class="concept-grid">
+                        <div class="concept-card">
+                            <h4><i class="fas fa-undo-alt"></i> How They Form (Example)</h4>
+                            <p>Price is in an uptrend, hits a bearish OB, but instead of reversing, it blasts through it (due to overwhelming bullish pressure). Later, price pulls back to this now "broken" bearish OB. This area acts as support for a continuation of the bullish trend.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4><i class="fas fa-share-square"></i> Trading with Mitigation Blocks</h4>
+                            <p>Once a valid OB is broken with displacement, anticipate a return to that original OB (now a Mitigation Block) for a potential entry in the direction of the new trend.</p>
+                        </div>
+                    </div>
+                    <div class="warning-note">
+                        <p><i class="fas fa-exclamation-triangle"></i> Mitigation blocks are often confused with Breaker Blocks. The key difference is that Mitigation Blocks are about returning to an <b>unmitigated</b> Order Block that was broken, to fill remaining orders.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-card" id="breaker-blocks">
+                <h2 class="lesson-title"><i class="fas fa-wrench"></i> Breaker Blocks: Failed Structure Swings</h2>
+                <div class="explanation-box">
+                    <p>A <b>Breaker Block</b> is a more specific type of POI linked to a failed swing point in market structure. It forms when a swing high (in an uptrend) or swing low (in a downtrend) fails to create a new Break of Structure (BOS), and then gets decisively broken itself by price with displacement.</p>
+                    <p>The original swing point that failed to extend the trend, once broken, often acts as a strong reversal or continuation point when price returns to retest it. Institutions use these areas to reverse positions or re-enter trades.</p>
+                    <div class="concept-grid">
+                        <div class="concept-card">
+                            <h4><i class="fas fa-chevron-circle-up"></i> Bullish Breaker Block</h4>
+                            <p>Price is in a downtrend, makes a Lower Low (LL), then a Lower High (LH). If this LH then breaks the previous LH and makes a new high, the <b>old LH that failed to make a new LL</b> becomes your Breaker Block, acting as support.</p>
+                        </div>
+                        <div class="concept-card">
+                            <h4><i class="fas fa-chevron-circle-down"></i> Bearish Breaker Block</h4>
+                            <p>Price is in an uptrend, makes a Higher High (HH), then a Higher Low (HL). If this HL then breaks the previous HL and makes a new low, the <b>old HL that failed to make a new HH</b> becomes your Breaker Block, acting as resistance.</p>
+                        </div>
+                    </div>
+                    <div class="warning-note">
+                        <p><i class="fas fa-exclamation-triangle"></i> Breaker Blocks are powerful but require careful identification of the "failed swing" and subsequent displacement. They are typically identified on higher timeframes and can act as strong reversal points.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-card" id="premium-discount">
+                <h2 class="lesson-title"><i class="fas fa-tags"></i> Price Delivery: Premium & Discount Arrays</h2>
+                <div class="explanation-box">
+                    <p>Understanding <b>Premium and Discount Zones</b> is fundamental to identifying optimal entry points. Institutions are always looking to buy at a discount and sell at a premium. These zones are derived from a specific "dealing range" – typically the most recent swing high to swing low that defines a structural leg.</p>
+                    <ul class="premium-discount-list">
+                        <li><i class="fas fa-dollar-sign"></i> <p><b>Equilibrium:</b> The 50% midpoint of a dealing range.</p></li>
+                        <li><i class="fas fa-arrow-alt-circle-up"></i> <p><b>Premium Zone:</b> The area <b>above</b> equilibrium (above 50% of the range). This is where Smart Money looks to <b>sell</b>.</p></li>
+                        <li><i class="fas fa-arrow-alt-circle-down"></i> <p><b>Discount Zone:</b> The area <b>below</b> equilibrium (below 50% of the range). This is where Smart Money looks to <b>buy</b>.</p></li>
+                    </ul>
+                    <p>To identify these zones, you draw a Fibonacci Retracement tool from the low to the high of the relevant dealing range (for buys) or high to the low (for sells). The 50% level is your equilibrium.</p>
+                    <div class="real-world-example">
+                        <h4><i class="fas fa-calculator"></i> Practical Application:</h4>
+                        <p>If you're looking for a long (buy) opportunity, you want price to retrace into a <b>Discount Zone</b>, ideally interacting with an Order Block or FVG there. If you're looking for a short (sell) opportunity, you want price to retrace into a <b>Premium Zone</b>, interacting with an institutional footprint there.</p>
+                        <p> *(Add image/chart example showing a dealing range with 50%, premium, and discount zones marked.)* </p>
+                    </div>
+                    <div class="warning-note">
+                        <p><i class="fas fa-exclamation-triangle"></i> Avoid buying in a premium or selling in a discount. This is a common retail mistake that puts you at a disadvantage against Smart Money.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="next-steps">
+                <div class="homework-box">
+                    <h4><i class="fas fa-home"></i> Your Homework:</h4>
+                    <p>1. On your charts, review instances of clear BOS or ChoCH.</p>
+                    <p>2. After a BOS/ChoCH, identify if there was strong <b>Displacement</b>. Does it leave FVGs?</p>
+                    <p>3. Look for instances where an Order Block was violated, and then price returned to that broken OB (now a <b>Mitigation Block</b>).</p>
+                    <p>4. Try to identify failed swings that turn into <b>Breaker Blocks</b>.</p>
+                    <p>5. Pick a recent swing leg (high to low, or low to high). Draw your Fibonacci and identify the <b>Premium and Discount Zones</b>. Observe how price reacts in these areas.</p>
+                    <div class="motivation">
+                        <p><i class="fas fa-brain"></i> These advanced concepts will significantly refine your understanding of institutional price action. Practice integrating them into your chart analysis!</p>
+                    </div>
+                </div>
+                <div class="lesson-navigation">
+                    <a href="lesson-3.html" class="lesson-button previous-module">← Previous: Module 3</a>
+                    <a href="lesson-5.html" class="lesson-button next-module">Next: Confluence & Strategy → </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Noldy22.</p>
+        <p>All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/message/RUOEAFKTDCD4L1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/_noldy22?igsh=MTQxNnBtbHVweXI3Zg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/14vhKbHLG9/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/MinjaAnold?t=xmTaX1P-9pwbKkZcdJFAvw&s=09" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="../../../noldy22.js"></script>
+    <div class="alert-container" id="alertContainer">
+        <div class="alert-content">
+            <span class="close-alert">&times;</span>
+            <p id="alertMessage"></p>
+        </div>
+    </div>
+</body>
+</html>
