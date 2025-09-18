@@ -89,7 +89,7 @@
   transform: translateY(-3px);
 }
 
-/* 4. Mobile Navigation Styles (NEW) */
+/* 4. Mobile Navigation Styles (CORRECTED) */
 .menu-toggle {
   display: none; /* Hidden by default on desktop */
   background: none;
@@ -106,38 +106,40 @@
     display: block; /* Show the hamburger */
   }
 
-  .main-nav {
-    display: none; /* Hide the regular nav */
+  /* Use the ID for higher specificity to avoid conflicts */
+  #mainNav {
+    display: none; /* Hide the nav by default on mobile */
     position: absolute;
-    top: 100%;
+    top: 100%; /* Position it right below the header */
     left: 0;
     width: 100%;
     background-color: var(--primary-light);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   }
 
-  .main-nav.mobile-active {
-    display: block; /* Show the nav when active */
+  /* This style will now reliably override the 'display: none' */
+  #mainNav.mobile-active {
+    display: block; /* Show the nav when the class is added */
   }
 
-  .main-nav ul {
+  #mainNav ul {
     flex-direction: column;
     gap: 0;
     padding: var(--spacing-md) 0;
   }
 
-  .main-nav li {
+  #mainNav li {
     width: 100%;
   }
 
-  .main-nav a {
+  #mainNav a {
     display: block;
     width: 100%;
     padding: var(--spacing-md) var(--spacing-lg);
     text-align: center;
   }
   
-  .main-nav a::after {
+  #mainNav a::after {
       display: none; /* Hide underline effect on mobile */
   }
 }
