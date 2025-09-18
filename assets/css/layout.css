@@ -71,6 +71,12 @@
   border-top: 1px solid rgba(255, 215, 0, 0.1);
 }
 
+/* CORRECTED RULE */
+.main-footer p {
+    text-align: center;
+    margin: 0 auto; /* This centers the block itself */
+}
+
 .footer-socials {
   display: flex;
   justify-content: center;
