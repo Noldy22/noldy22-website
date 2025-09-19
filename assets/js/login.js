@@ -1,99 +1,158 @@
-import { auth } from './firebase-init.js';
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
-// This self-contained alert function will be used only by this page.
-function showAlert(message, type = 'error') {
+// Add this alert handling code at the top of your file
+function showAlert(message, type = 'success') {
     const container = document.getElementById('alertContainer');
-    if (!container) return;
-    message.startsWith('Error:') ? (type = 'error') : (type = 'success');
-
     const content = container.querySelector('.alert-content');
     const messageElement = document.getElementById('alertMessage');
-    
+
+    // Reset classes
     content.className = 'alert-content';
+
+    // Set content and style
     messageElement.textContent = message;
     content.classList.add(type);
+
+    // Show alert
     container.style.display = 'block';
-    
-    setTimeout(() => { container.style.display = 'none'; }, 5000);
+
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        container.style.display = 'none';
+    }, 5000);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // All the elements this script needs
-    const loginForm = document.getElementById('loginForm');
-    const googleBtn = document.getElementById('google-signin');
-    const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
-    const passwordResetModal = document.getElementById('passwordResetModal');
-    const closeResetModal = document.getElementById('closeResetModal');
-    const submitResetEmail = document.getElementById('submitResetEmail');
-    const resetEmailInput = document.getElementById('resetEmail');
+// Close alert handler
+document.querySelector('.close-alert')?.addEventListener('click', () => {
+    document.getElementById('alertContainer').style.display = 'none';
+});
 
-    // Close alert button
-    const closeAlertButton = document.getElementById('closeAlert');
-    if (closeAlertButton) {
-        closeAlertButton.addEventListener('click', () => {
-            document.getElementById('alertContainer').style.display = 'none';
-        });
+// Error message formatter
+function getFriendlyErrorMessage(errorCode) {
+    switch(errorCode) {
+        case 'auth/invalid-email':
+            return 'Please enter a valid email address.';
+        case 'auth/user-disabled':
+            return 'This account has been disabled.';
+        case 'auth/user-not-found':
+            return 'No account found with this email.';
+        case 'auth/wrong-password':
+            return 'Incorrect password. Please try again.';
+        case 'auth/too-many-requests':
+            return 'Too many attempts. Please try again later.';
+        default:
+            return 'An error occurred. Please try again.';
     }
+}
 
-    // Friendly error messages
-    function getFriendlyErrorMessage(errorCode) {
-        if (errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password') {
-            return 'Incorrect email or password. Please try again.';
+// Import the functions you need from the Firebase SDK
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import {
+    getAnalytics
+} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAWmF_ZmHuxD4beWeJ29rqW-E49BdwQYyE",
+    authDomain: "noldy22-7836c.firebaseapp.com",
+    projectId: "noldy22-7836c",
+    storageBucket: "noldy22-7836c.firebasestorage.app",
+    messagingSenderId: "782608981663",
+    appId: "1:782608981663:web:bfe34cec174ed662060caa",
+    measurementId: "G-HNT78Q9EM6"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+
+// Password Reset Functionality
+const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+const passwordResetModal = document.getElementById('passwordResetModal');
+const closeResetModal = document.getElementById('closeResetModal');
+const submitResetEmail = document.getElementById('submitResetEmail');
+const resetEmail = document.getElementById('resetEmail');
+
+if (forgotPasswordBtn) {
+    forgotPasswordBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        passwordResetModal.style.display = 'block';
+    });
+}
+
+if (closeResetModal) {
+    closeResetModal.addEventListener('click', () => {
+        passwordResetModal.style.display = 'none';
+    });
+}
+
+if (submitResetEmail) {
+    submitResetEmail.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = resetEmail.value.trim();
+
+        if (!email) {
+            showAlert('Please enter your email address', 'error');
+            return;
         }
-        return 'An unknown error occurred. Please try again.';
-    }
-    
-    // The function that runs on successful Firebase login
-    function handleAuthSuccess(user) {
-        return user.getIdToken(true).then(idToken => {
-            return fetch('/setTokenCookie', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ token: idToken })
-            });
-        }).then(response => {
-            if (!response.ok) {
-                // This error IS expected on your local server
-                throw new Error('Failed to set auth cookie.');
-            }
-            // This redirect will happen when deployed on Cloudflare
-            window.location.href = '/services/lessons.html';
-        });
-    }
 
-    // Email/Password login
-    if (loginForm) {
-        loginForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            signInWithEmailAndPassword(auth, email, password)
-                .then(userCredential => handleAuthSuccess(userCredential.user))
-                .catch(error => showAlert(getFriendlyErrorMessage(error.code)));
-        });
-    }
+        try {
+            await sendPasswordResetEmail(auth, email);
+            showAlert('Password reset email sent! Check your inbox.', 'success');
+            passwordResetModal.style.display = 'none';
+        } catch (error) {
+            showAlert(getFriendlyErrorMessage(error.code), 'error');
+        }
+    });
+}
 
-    // Password Reset
-    if (forgotPasswordBtn) {
-        forgotPasswordBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            passwordResetModal.style.display = 'block';
+// Submit event listener
+const submit = document.getElementById('submit');
+submit.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Inputs
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // 1) Sign in to Firebase Auth
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        showAlert('Logging in to your account...', 'success');
+
+        // 2) Get fresh ID token
+        return auth.currentUser.getIdToken(/* forceRefresh */ true);
+    })
+    .then((idToken) => {
+        // 3) POST token to your Cloudflare Function to set cookie
+        return fetch('/setTokenCookie', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token: idToken }),
+            credentials: 'include' // <-- THIS IS THE FIX
         });
-    }
-    if (closeResetModal) {
-        closeResetModal.addEventListener('click', () => passwordResetModal.style.display = 'none');
-    }
-    if (submitResetEmail) {
-        submitResetEmail.addEventListener('click', (e) => {
-            e.preventDefault();
-            const email = resetEmailInput.value;
-            sendPasswordResetEmail(auth, email)
-                .then(() => {
-                    passwordResetModal.style.display = 'none';
-                    showAlert('Password reset email sent! Check your inbox.', 'success');
-                })
-                .catch(error => showAlert(getFriendlyErrorMessage(error.code)));
-        });
-    }
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Failed to set auth cookie.');
+        }
+        // 4) Only after cookie is set, redirect into your protected area
+        window.location.href = 'index.html';
+    })
+    .catch((error) => {
+        // If any step errors, show a friendly message
+        console.error(error);
+        showAlert(
+            error.message.includes('Failed to set auth cookie')
+            ? 'Login succeeded, but we couldn’t complete setup. Try again.'
+            : getFriendlyErrorMessage(error.code),
+            'error'
+        );
+    });
 });
