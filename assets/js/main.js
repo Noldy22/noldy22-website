@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-// Your web app's Firebase configuration
+// Firebase Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAWmF_ZmHuxD4beWeJ29rqW-E49BdwQYyE",
     authDomain: "noldy22-7836c.firebaseapp.com",
@@ -17,74 +17,62 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// NOTE: The 'showAlert' function is defined here. No need to import it.
-function showAlert(message, type = 'success') {
-    // This function will be used by the login/signup pages if an alert container exists
-    const container = document.getElementById('alertContainer');
-    if (container) {
-        const content = container.querySelector('.alert-content');
-        const messageElement = document.getElementById('alertMessage');
-        content.className = 'alert-content';
-        messageElement.textContent = message;
-        content.classList.add(type);
-        container.style.display = 'block';
-        setTimeout(() => { container.style.display = 'none'; }, 5000);
-    }
-}
-
-// Function to handle the auth button logic
+/**
+ * Sets up the dynamic Login/Logout button.
+ * This is called after the header is confirmed to be loaded.
+ */
 function setupAuthButton() {
     const authLink = document.getElementById('authLink');
-    if (!authLink) {
-        // This is expected on login/signup pages, so we don't log an error
-        return;
+    if (authLink) {
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                authLink.textContent = 'Logout';
+                authLink.href = '#';
+                authLink.onclick = (e) => {
+                    e.preventDefault();
+                    signOut(auth).then(() => {
+                        window.location.href = '/index.html';
+                    });
+                };
+            } else {
+                authLink.textContent = 'Login';
+                authLink.href = '/login.html';
+                authLink.onclick = null;
+            }
+        });
     }
-
-    onAuthStateChanged(auth, user => {
-        if (user) {
-            // User is signed in, show Logout
-            authLink.textContent = 'Logout';
-            authLink.href = '#';
-            authLink.onclick = (e) => {
-                e.preventDefault();
-                signOut(auth).then(() => {
-                    window.location.href = '/index.html';
-                });
-            };
-        } else {
-            // User is signed out, show Login
-            authLink.textContent = 'Login';
-            authLink.href = '/login.html';
-            authLink.onclick = null;
-        }
-    });
 }
 
-// Function to load HTML partials
+/**
+ * Fetches and injects an HTML file into a placeholder element.
+ * @param {string} placeholderId - The ID of the element to inject HTML into.
+ * @param {string} filePath - The path to the HTML partial file.
+ */
 const loadPartial = (placeholderId, filePath) => {
     fetch(filePath)
-        .then(response => response.ok ? response.text() : Promise.reject(`Failed to load ${filePath}`))
+        .then(response => {
+            if (!response.ok) throw new Error(`Failed to load ${filePath}`);
+            return response.text();
+        })
         .then(data => {
             const placeholder = document.getElementById(placeholderId);
             if (placeholder) placeholder.innerHTML = data;
-            
-            // If we just loaded the header, set up its interactive elements
+
+            // If the header was just loaded, initialize its components.
             if (placeholderId === 'header-placeholder') {
-                setupAuthButton(); // Set up the Login/Logout button
-                // Re-initialize nav logic from nav.js if needed, or ensure nav.js runs after this
-                const menuToggle = document.getElementById('menu-toggle');
-                const navMenu = document.getElementById('nav-menu');
-                if (menuToggle && navMenu) {
-                    menuToggle.addEventListener('click', () => {
-                        navMenu.classList.toggle('active'); // Ensure nav.js uses a class like 'active'
-                    });
-                }
+                // 1. Set up the Auth button
+                setupAuthButton();
+                // 2. Dynamically load nav.js so it runs now that the header exists
+                const navScript = document.createElement('script');
+                navScript.src = '/assets/js/nav.js';
+                navScript.defer = true;
+                document.body.appendChild(navScript);
             }
         })
         .catch(error => console.error(error));
 };
 
-// Load header and footer on all pages
+// Main execution: Load header and footer when the DOM is ready.
 document.addEventListener('DOMContentLoaded', () => {
     loadPartial('header-placeholder', '/partials/header.html');
     loadPartial('footer-placeholder', '/partials/footer.html');
