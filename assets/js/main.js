@@ -18,6 +18,34 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 /**
+ * NEW: Restricts access to protected pages.
+ * Checks if the user is logged in and redirects them if they are not.
+ */
+function handlePageProtection() {
+    const protectedPaths = [
+        '/products/',
+        '/services/',
+        '/lessons/'
+    ];
+
+    const currentPath = window.location.pathname;
+
+    // Check if the current page is a protected one
+    const isProtected = protectedPaths.some(path => currentPath.startsWith(path));
+
+    if (isProtected) {
+        onAuthStateChanged(auth, user => {
+            if (!user) {
+                // If no user is logged in, redirect to the login page
+                console.log("Access denied. Redirecting to login.");
+                window.location.href = '/login.html';
+            }
+        });
+    }
+}
+
+
+/**
  * Sets up the dynamic Login/Logout button.
  * This runs after the header is loaded.
  */
@@ -37,7 +65,7 @@ function setupAuthButton() {
             } else {
                 authLink.textContent = 'Login';
                 authLink.href = '/login.html';
-                authLink.onclick = null; 
+                authLink.onclick = null;
             }
         });
     }
@@ -87,6 +115,9 @@ const loadPartial = (placeholderId, filePath, callback) => {
 
 // Main execution block that runs when the page is ready
 document.addEventListener('DOMContentLoaded', () => {
+    // FIRST, check if the page needs protection
+    handlePageProtection();
+
     // Load the header, and WHEN IT'S DONE, set up its interactive elements
     loadPartial('header-placeholder', '/partials/header.html', () => {
         setupAuthButton();
