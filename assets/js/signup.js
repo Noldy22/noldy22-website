@@ -41,11 +41,8 @@ function getFriendlyErrorMessage(errorCode) {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAWmF_ZmHuxD4beWeJ29rqW-E49BdwQYyE",
   authDomain: "noldy22-7836c.firebaseapp.com",
@@ -61,7 +58,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-//submit button
 // Modified submit event listener
 const submit = document.getElementById('submit');
 submit.addEventListener("click", function(event) {
@@ -74,24 +70,24 @@ submit.addEventListener("click", function(event) {
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         showAlert('Account created! Logging you in...', 'success');
-        // Get the ID token from the newly created user
-        return auth.currentUser.getIdToken(/* forceRefresh */ true);
+        return auth.currentUser.getIdToken(true);
     })
     .then((idToken) => {
-        // POST the token to your function to set the cookie
         return fetch('/setTokenCookie', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ token: idToken }),
-            credentials: 'include' // Important for setting cookies
+            credentials: 'include'
         });
     })
     .then((response) => {
         if (!response.ok) {
             throw new Error('Failed to set auth cookie.');
         }
-        // Redirect to the homepage after the cookie is set
-        window.location.href = "index.html";
+        // Check for a redirect URL, otherwise go home
+        const redirectUrl = sessionStorage.getItem('redirectUrl');
+        sessionStorage.removeItem('redirectUrl'); // Clean up
+        window.location.href = redirectUrl || "/index.html";
     })
     .catch((error) => {
         const errorMessage = getFriendlyErrorMessage(error.code);

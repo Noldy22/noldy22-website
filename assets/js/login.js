@@ -135,15 +135,17 @@ submit.addEventListener("click", function(event) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ token: idToken }),
-            credentials: 'include' // <-- THIS IS THE FIX
+            credentials: 'include'
         });
     })
     .then((response) => {
         if (!response.ok) {
             throw new Error('Failed to set auth cookie.');
         }
-        // 4) Only after cookie is set, redirect into your protected area
-        window.location.href = 'index.html';
+        // 4) Check for a redirect URL, otherwise go home
+        const redirectUrl = sessionStorage.getItem('redirectUrl');
+        sessionStorage.removeItem('redirectUrl'); // Clean up session storage
+        window.location.href = redirectUrl || '/index.html';
     })
     .catch((error) => {
         // If any step errors, show a friendly message

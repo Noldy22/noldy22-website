@@ -18,8 +18,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 /**
- * NEW: Restricts access to protected pages.
- * Checks if the user is logged in and redirects them if they are not.
+ * Restricts access to protected pages and saves the intended destination.
  */
 function handlePageProtection() {
     const protectedPaths = [
@@ -29,15 +28,14 @@ function handlePageProtection() {
     ];
 
     const currentPath = window.location.pathname;
-
-    // Check if the current page is a protected one
     const isProtected = protectedPaths.some(path => currentPath.startsWith(path));
 
     if (isProtected) {
         onAuthStateChanged(auth, user => {
             if (!user) {
-                // If no user is logged in, redirect to the login page
-                console.log("Access denied. Redirecting to login.");
+                // Save the current page URL to redirect back to after login
+                sessionStorage.setItem('redirectUrl', currentPath);
+                console.log("Access denied. Storing redirect URL and redirecting to login.");
                 window.location.href = '/login.html';
             }
         });
@@ -47,7 +45,6 @@ function handlePageProtection() {
 
 /**
  * Sets up the dynamic Login/Logout button.
- * This runs after the header is loaded.
  */
 function setupAuthButton() {
     const authLink = document.getElementById('authLink');
@@ -73,7 +70,6 @@ function setupAuthButton() {
 
 /**
  * Sets up the mobile menu toggle functionality.
- * This runs after the header is loaded.
  */
 function setupMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
@@ -88,10 +84,6 @@ function setupMobileMenu() {
 
 /**
  * Fetches and injects an HTML file into a placeholder element.
- * Includes a callback function to run reliably after injection.
- * @param {string} placeholderId - The ID of the element to inject HTML into.
- * @param {string} filePath - The path to the HTML partial file.
- * @param {function} [callback] - Optional callback function to execute after loading.
  */
 const loadPartial = (placeholderId, filePath, callback) => {
     fetch(filePath)
@@ -113,17 +105,14 @@ const loadPartial = (placeholderId, filePath, callback) => {
         .catch(error => console.error(`Error loading partial ${filePath}:`, error));
 };
 
-// Main execution block that runs when the page is ready
+// Main execution block
 document.addEventListener('DOMContentLoaded', () => {
-    // FIRST, check if the page needs protection
     handlePageProtection();
 
-    // Load the header, and WHEN IT'S DONE, set up its interactive elements
     loadPartial('header-placeholder', '/partials/header.html', () => {
         setupAuthButton();
         setupMobileMenu();
     });
 
-    // Load the footer
     loadPartial('footer-placeholder', '/partials/footer.html');
 });
