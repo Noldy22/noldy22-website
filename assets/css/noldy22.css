@@ -1,0 +1,193 @@
+:root {
+    --primary-dark: #0A192F;
+    --accent: #FFD700;
+    --neutral-dark: #2D4059;
+    --neutral-light: #F8F9FA;
+    --cta: #FF6B6B;
+}
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--neutral-light);
+    background-color: var(--primary-dark);
+    font-size: 1.1rem;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+}
+
+header {
+    background-color: var(--neutral-dark);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: var(--neutral-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav .current {
+    color: var(--accent);
+}
+
+.logo {
+    max-width: 80px;
+    height: auto;
+    display: block;
+    padding: 10px 0;
+}
+
+.logo:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--neutral-dark);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 0.8rem 1rem;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: var(--neutral-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.dropdown-toggle {
+    background: transparent;
+    border: none;
+    color: var(--neutral-light);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.dropdown.active .dropdown-toggle {
+    transform: rotate(180deg);
+}
+
+
+/* === MOBILE STYLES & FIX === */
+@media (max-width: 768px) {
+    header {
+        position: sticky; /* Keep header visible on scroll for mobile */
+        top: 0;
+        z-index: 1000;
+        padding: 0.5rem 1rem;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger icon */
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+
+    nav ul {
+        display: none; /* Hide menu by default */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--neutral-dark);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+
+    /* This is the FIX: When .menu-active is added by JS, display the menu */
+    nav ul.menu-active {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static; /* Make dropdowns flow naturally in the column */
+        background-color: transparent;
+        box-shadow: none;
+        display: none; /* Hide sub-menus by default */
+        padding-left: 1.5rem; /* Indent sub-menu items */
+    }
+    
+    /* This is the second FIX: Show the dropdown menu when its parent is active */
+    .dropdown.active .dropdown-menu {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    .nav-parent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
