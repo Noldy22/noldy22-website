@@ -19,7 +19,7 @@ const auth = getAuth(app);
 
 /**
  * Sets up the dynamic Login/Logout button.
- * This is called after the header is confirmed to be loaded.
+ * This runs after the header is loaded.
  */
 function setupAuthButton() {
     const authLink = document.getElementById('authLink');
@@ -32,48 +32,67 @@ function setupAuthButton() {
                     e.preventDefault();
                     signOut(auth).then(() => {
                         window.location.href = '/index.html';
-                    });
+                    }).catch(error => console.error('Logout Error:', error));
                 };
             } else {
                 authLink.textContent = 'Login';
                 authLink.href = '/login.html';
-                authLink.onclick = null;
+                authLink.onclick = null; 
             }
         });
     }
 }
 
 /**
+ * Sets up the mobile menu toggle functionality.
+ * This runs after the header is loaded.
+ */
+function setupMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('mobile-active');
+        });
+    }
+}
+
+/**
  * Fetches and injects an HTML file into a placeholder element.
+ * Includes a callback function to run reliably after injection.
  * @param {string} placeholderId - The ID of the element to inject HTML into.
  * @param {string} filePath - The path to the HTML partial file.
+ * @param {function} [callback] - Optional callback function to execute after loading.
  */
-const loadPartial = (placeholderId, filePath) => {
+const loadPartial = (placeholderId, filePath, callback) => {
     fetch(filePath)
         .then(response => {
-            if (!response.ok) throw new Error(`Failed to load ${filePath}`);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
+            }
             return response.text();
         })
         .then(data => {
             const placeholder = document.getElementById(placeholderId);
-            if (placeholder) placeholder.innerHTML = data;
-
-            // If the header was just loaded, initialize its components.
-            if (placeholderId === 'header-placeholder') {
-                // 1. Set up the Auth button
-                setupAuthButton();
-                // 2. Dynamically load nav.js so it runs now that the header exists
-                const navScript = document.createElement('script');
-                navScript.src = '/assets/js/nav.js';
-                navScript.defer = true;
-                document.body.appendChild(navScript);
+            if (placeholder) {
+                placeholder.innerHTML = data;
+                if (callback) {
+                    callback();
+                }
             }
         })
-        .catch(error => console.error(error));
+        .catch(error => console.error(`Error loading partial ${filePath}:`, error));
 };
 
-// Main execution: Load header and footer when the DOM is ready.
+// Main execution block that runs when the page is ready
 document.addEventListener('DOMContentLoaded', () => {
-    loadPartial('header-placeholder', '/partials/header.html');
+    // Load the header, and WHEN IT'S DONE, set up its interactive elements
+    loadPartial('header-placeholder', '/partials/header.html', () => {
+        setupAuthButton();
+        setupMobileMenu();
+    });
+
+    // Load the footer
     loadPartial('footer-placeholder', '/partials/footer.html');
 });
