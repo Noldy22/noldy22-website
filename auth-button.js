@@ -30,8 +30,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 import {
   getAuth,
-  onAuthStateChanged,
-  signOut
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -49,40 +48,33 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-// Grab your nav auth link
-const authLink = document.getElementById('authLink');
+const HIRE_DEV_URL = "https://wa.me/255755904987?text=Hi%20Noldy%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20custom%20MT5%20coding%20project.";
 
-// Listen for auth state changes
-onAuthStateChanged(auth, user => {
-  if (user) {
-    console.log("✅ Client sees user:", user.uid);
-
-    // Signed in → show “Logout”
-    authLink.textContent = 'Logout';
-    authLink.href = '#';            // override the link
-    authLink.onclick = e => {
-      e.preventDefault();
-      signOut(auth)
-        .then(() => {
-          // Use styled alert instead of default
-          showAlert('Logged out successfully', 'success');
-          
-          // Redirect to homepage after short delay
-          setTimeout(() => {
-            window.location.href = '/index.html';
-          }, 1500); // Let user see the success message first
-        })
-        .catch(err => {
-          console.error(err);
-          showAlert('Error logging out', 'error');
-        });
-    };
-  } else {
-    console.log("❌ Client sees NO user");
-
-    // Not signed in → show “Login”
-    authLink.textContent = 'Login';
-    authLink.href = '/login.html';
-    authLink.onclick = null;        // remove any old handler
+// Configure header CTA button
+function configureCtaButton() {
+  const authLink = document.getElementById('authLink');
+  if (authLink) {
+    authLink.innerHTML = '<i class="fab fa-whatsapp"></i> Hire Developer';
+    authLink.href = HIRE_DEV_URL;
+    authLink.target = '_blank';
+    authLink.rel = 'noopener noreferrer';
+    authLink.classList.add('nav-cta-btn');
+    authLink.onclick = null;
   }
-});
+}
+
+// Execute immediately and when DOM is ready
+configureCtaButton();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', configureCtaButton);
+}
+
+// Keep auth listener active for analytics/logging without overriding the CTA button
+onAuthStateChanged(auth, user => {
+  configureCtaButton();
+  if (user) {
+    console.log("✅ Authenticated user active:", user.uid);
+  } else {
+    console.log("ℹ️ Guest user - Hire Developer CTA active");
+  }
+});

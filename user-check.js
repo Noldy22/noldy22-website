@@ -17,11 +17,11 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
   const analytics = getAnalytics(app);
   const auth = getAuth();
   onAuthStateChanged(auth, user => {
-    if (user) {
-      console.log("✅ Client sees user:", user.uid);
-      // maybe show a “Logout” button
-    } else {
-      console.log("❌ Client sees NO user, redirecting…");
-      window.location.replace('/login.html');
-    }
-  });
+  if (user) {
+    console.log("✅ Client sees user:", user.uid);
+  } else {
+    // Client-side auth wall disabled: unauthenticated visitors can view all pages freely
+    console.log("ℹ️ Client sees NO user: public access permitted (auth wall disabled).");
+  }
+});
+
