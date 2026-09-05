@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>MT5 Expert Advisor | Noldy22</title>
+    <link rel="stylesheet" href="../noldy22.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="../images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Noldy22" />
+    <link rel="manifest" href="../images/site.webmanifest" />
+</head>
+<body>
+    <header>
+        <h1 class="header"><a href="../index.html"><img src="../images/Noldy22 logo.png" class="logo" alt="Noldy22 logo"></a></h1>
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a class="current" href="products.html">Products</a>
+                        <button class="dropdown-toggle" aria-label="Toggle products menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="mt5EAs.html">MT5 Expert Advisors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <div class="nav-parent">
+                        <a href="../Services/Services.html">Services</a>
+                        <button class="dropdown-toggle" aria-label="Toggle services menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Services/ForexLessons.html">Forex Lessons</a></li>
+                    </ul>
+                </li>
+                <li><a href="../about-Noldy22.html">About</a></li>
+                <li><a href="../contact-Noldy22.html">Contact</a></li>
+                <li><a id="authLink" class="nav-cta-btn" href="https://wa.me/255755904987?text=Hi%20Noldy%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20custom%20MT5%20coding%20project." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Hire Developer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="ea-container">
+        <section class="section">
+            <div class="section-content" id="productContainer">
+                <!-- Back Navigation -->
+                <a href="mt5EAs.html" class="btn btn-secondary" style="margin-bottom: 2rem;">
+                    <i class="fas fa-arrow-left"></i> Back to All EAs
+                </a>
+
+                <div class="product-badge-wrapper">
+                    <span class="product-badge" id="productBadge">Loading...</span>
+                </div>
+
+                <h1 class="section-title" id="productTitle">Loading Product...</h1>
+
+                <!-- Product Hero Header (Media + Summary + Dual-Checkout CTA) -->
+                <div class="product-header">
+                    <div class="product-media">
+                        <img id="productImage" src="" alt="Product Interface Preview" class="section-image product-preview-img">
+                    </div>
+                    <div class="product-summary">
+                        <p class="section-description" id="productSubtitle" style="font-size: 1.25rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem;"></p>
+                        <p class="section-description" id="productStrategy" style="line-height: 1.7; margin-bottom: 2rem;"></p>
+
+                        <!-- Dual-Checkout CTA Block -->
+                        <div class="dual-checkout-box">
+                            <div class="checkout-header">
+                                <h3><i class="fas fa-bolt" style="color: var(--accent);"></i> Instant License Options</h3>
+                                <p>Select your preferred purchase method below:</p>
+                            </div>
+
+                            <div class="checkout-actions">
+                                <a id="btnDirectCrypto" href="#" class="btn btn-direct-crypto" target="_blank" rel="noopener noreferrer">
+                                    <span class="btn-main-text"><i class="fab fa-whatsapp"></i> Buy Direct via Crypto (Instant Delivery)</span>
+                                    <span class="btn-price-tag" id="directPriceTag"></span>
+                                </a>
+
+                                <a id="btnMql5Market" href="#" class="btn btn-mql5-market" target="_blank" rel="noopener noreferrer">
+                                    <span class="btn-main-text"><i class="fas fa-shopping-cart"></i> Buy on MQL5 Market</span>
+                                    <span class="btn-price-tag" id="mql5PriceTag"></span>
+                                </a>
+                            </div>
+
+                            <!-- Custom Modification Link -->
+                            <div class="custom-mod-wrapper">
+                                <a id="customModLink" href="#" class="custom-mod-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-code-branch"></i> Need custom rules or filters added? <strong>Request Custom Modifications ($60+) &rarr;</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Algorithmic Features -->
+                <div class="levels-container" style="margin-top: 3rem;">
+                    <div class="level-card" style="text-align: left; width: 100%;">
+                        <h2 class="subsection-title" style="text-align: center; margin-bottom: 2rem;">Core Algorithmic Features</h2>
+                        <div class="feature-grid" id="featuresGrid">
+                            <!-- Populated dynamically from products-data.js -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration Parameters Table -->
+                <div class="section" style="margin: 3rem 0; padding: 2rem 1.5rem; border-radius: 8px;">
+                    <h2 class="subsection-title" style="text-align: center; margin-bottom: 1.5rem;">Configuration Settings & Parameters</h2>
+                    <div class="settings-table" style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                            <thead>
+                                <tr style="background-color: var(--primary-dark);">
+                                    <th style="padding: 1rem; text-align: left;">Parameter</th>
+                                    <th style="padding: 1rem; text-align: left;">Default Value</th>
+                                    <th style="padding: 1rem; text-align: left;">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="parametersBody">
+                                <!-- Populated dynamically from products-data.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Risk Disclaimer -->
+                <div class="notice" id="productNotice" style="background-color: rgba(255,107,107,0.1); border-left: 4px solid var(--cta); padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+                    <h3><i class="fas fa-exclamation-triangle" style="color: var(--cta);"></i> Risk Disclaimer</h3>
+                    <p id="noticeText"></p>
+                </div>
+
+                <!-- Installation Guide -->
+                <div class="setup-instructions" style="background-color: var(--neutral-dark); padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                    <h2 class="subsection-title">Setup & Installation Guide</h2>
+                    <ol class="styled-list" id="installStepsList" style="margin: 1.5rem 0; padding-left: 1.5rem; line-height: 1.8;">
+                        <!-- Populated dynamically from products-data.js -->
+                    </ol>
+                </div>
+
+                <!-- FAQ -->
+                <div class="faq-section" style="margin-top: 3rem;">
+                    <h2 class="subsection-title" style="text-align: center;">Frequently Asked Questions</h2>
+                    <div class="faq-grid" id="faqGrid" style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                        <!-- Populated dynamically from products-data.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Noldy22.</p>
+        <p>All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/message/RUOEAFKTDCD4L1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/_noldy22?igsh=MTQxNnBtbHVweXI3Zg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/14vhKbHLG9/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/MinjaAnold?t=xmTaX1P-9pwbKkZcdJFAvw&s=09" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { products } from './products-data.js';
+
+        function loadProduct() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            const product = products.find(p => p.id === id);
+
+            if (!product) {
+                // Redirect cleanly back to catalog if no valid ID found
+                window.location.replace('mt5EAs.html');
+                return;
+            }
+
+            // Populate Metadata & Hero
+            document.title = `${product.title} | Noldy22`;
+            document.getElementById('productBadge').textContent = product.badge;
+            document.getElementById('productTitle').textContent = product.title;
+            document.getElementById('productSubtitle').textContent = product.subtitle;
+            document.getElementById('productStrategy').textContent = product.strategySummary;
+
+            // Media
+            const imgEl = document.getElementById('productImage');
+            imgEl.src = product.image;
+            imgEl.alt = `${product.title} Interface Preview`;
+
+            // Dual-Checkout CTA
+            const isFree = product.directPrice.toLowerCase().includes('free');
+            const btnDirect = document.getElementById('btnDirectCrypto');
+            btnDirect.href = product.whatsappDirectUrl;
+            document.getElementById('directPriceTag').textContent = product.directPrice;
+            btnDirect.querySelector('.btn-main-text').innerHTML = isFree
+                ? '<i class="fab fa-whatsapp"></i> Download Free via WhatsApp'
+                : '<i class="fab fa-whatsapp"></i> Buy Direct via Crypto (Instant Delivery)';
+
+            const btnMql5 = document.getElementById('btnMql5Market');
+            btnMql5.href = product.mql5Url;
+            document.getElementById('mql5PriceTag').textContent = product.mql5Price;
+            btnMql5.querySelector('.btn-main-text').innerHTML = isFree
+                ? '<i class="fas fa-download"></i> Get Free on MQL5'
+                : '<i class="fas fa-shopping-cart"></i> Buy on MQL5 Market';
+
+            const customLink = document.getElementById('customModLink');
+            customLink.href = product.whatsappCustomUrl;
+
+            // Feature Cards Grid
+            const featuresGrid = document.getElementById('featuresGrid');
+            featuresGrid.innerHTML = product.features.map(f => `
+                <div class="feature-item" style="padding: 1.25rem; background: rgba(10, 25, 47, 0.6); border-radius: 6px; border: 1px solid rgba(255, 215, 0, 0.12);">
+                    <h3 style="margin-bottom: 0.6rem; color: var(--neutral-light); font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="${f.icon}" style="color: var(--accent);"></i> ${f.title}
+                    </h3>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: rgba(248, 249, 250, 0.85);">${f.description}</p>
+                </div>
+            `).join('');
+
+            // Configuration Parameters Table
+            const paramsBody = document.getElementById('parametersBody');
+            paramsBody.innerHTML = product.parametersTable.map(p => `
+                <tr style="border-bottom: 1px solid rgba(255, 215, 0, 0.1);">
+                    <td style="padding: 1rem; font-weight: 600; color: var(--accent);">${p.name}</td>
+                    <td style="padding: 1rem; color: var(--neutral-light); font-family: monospace; font-size: 1rem;">${p.defaultValue}</td>
+                    <td style="padding: 1rem; color: rgba(248, 249, 250, 0.85); font-size: 0.95rem;">${p.description}</td>
+                </tr>
+            `).join('');
+
+            // Notice & Steps
+            document.getElementById('noticeText').textContent = product.notice;
+            const stepsList = document.getElementById('installStepsList');
+            stepsList.innerHTML = product.installSteps.map(step => `<li>${step}</li>`).join('');
+
+            // FAQ
+            const faqGrid = document.getElementById('faqGrid');
+            faqGrid.innerHTML = product.faq.map(item => `
+                <div class="faq-item level-card" style="text-align: left; padding: 1.25rem 1.5rem;">
+                    <h3 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 0.5rem;">${item.question}</h3>
+                    <p style="font-size: 0.95rem; color: rgba(248, 249, 250, 0.85);">${item.answer}</p>
+                </div>
+            `).join('');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadProduct);
+        } else {
+            loadProduct();
+        }
+    </script>
+    <script src="../noldy22.js"></script>
+</body>
+</html>

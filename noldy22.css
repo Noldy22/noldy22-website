@@ -512,6 +512,268 @@ footer {
         font-size: 1.3rem;
     }
 }
+
+/* ==========================================================================
+   Product Template & Dynamic EA Catalog Styles
+   ========================================================================== */
+
+.product-badge-wrapper {
+    margin-bottom: 1rem;
+}
+
+.product-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 215, 0, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    padding: 0.3rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(76, 175, 80, 0.15);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.4);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.card-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.card-bullets,
+.level-card .card-bullets,
+.ea-catalog-card .card-bullets {
+    margin: 1rem 0 1.5rem;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    list-style: none !important;
+    list-style-type: none !important;
+    text-align: left;
+}
+
+.card-bullets li,
+.level-card .card-bullets li,
+.ea-catalog-card .card-bullets li {
+    position: static;
+    padding: 0.35rem 0;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    color: rgba(248, 249, 250, 0.9);
+    list-style: none !important;
+    list-style-type: none !important;
+}
+
+.card-bullets li::before,
+.level-card .card-bullets li::before,
+.ea-catalog-card .card-bullets li::before {
+    content: none !important;
+    display: none !important;
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: auto;
+}
+
+.card-actions .btn {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.2rem;
+    font-size: 0.92rem;
+}
+
+.card-actions .btn-inquire {
+    background: rgba(37, 211, 102, 0.12);
+    color: #25D366;
+    border: 2px solid #25D366;
+}
+
+.card-actions .btn-inquire:hover {
+    background: #25D366;
+    color: #0A192F;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+/* Product Detail Header & Dual-Checkout Box */
+.product-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-bottom: 3rem;
+}
+
+.product-preview-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.dual-checkout-box {
+    background: rgba(10, 25, 47, 0.75);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 10px;
+    padding: 1.8rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+}
+
+.checkout-header h3 {
+    color: var(--neutral-light);
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkout-header p {
+    font-size: 0.95rem;
+    color: rgba(248, 249, 250, 0.75);
+    margin-bottom: 1.25rem;
+}
+
+.checkout-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.btn-direct-crypto {
+    background: #25D366 !important;
+    color: #0A192F !important;
+    border: 2px solid #25D366;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1.4rem !important;
+    font-weight: 700;
+    font-size: 0.98rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin: 0 !important;
+    text-transform: none;
+}
+
+.btn-direct-crypto:hover {
+    background: transparent !important;
+    color: #25D366 !important;
+    box-shadow: 0 0 16px rgba(37, 211, 102, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-mql5-market {
+    background: var(--cta) !important;
+    color: #FFFFFF !important;
+    border: 2px solid var(--cta);
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1.4rem !important;
+    font-weight: 700;
+    font-size: 0.98rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin: 0 !important;
+    text-transform: none;
+}
+
+.btn-mql5-market:hover {
+    background: transparent !important;
+    color: var(--cta) !important;
+    box-shadow: 0 0 16px rgba(255, 107, 107, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-price-tag {
+    background: rgba(0, 0, 0, 0.28);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.custom-mod-wrapper {
+    border-top: 1px solid rgba(255, 215, 0, 0.15);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.custom-mod-link,
+.custom-mod-wrapper a {
+    color: var(--accent);
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: all 0.25s ease;
+}
+
+.custom-mod-link:hover,
+.custom-mod-link:focus,
+.custom-mod-wrapper a:hover,
+.custom-mod-wrapper a:focus {
+    color: #FFFFFF;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .product-header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .btn-direct-crypto, .btn-mql5-market {
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+        padding: 0.8rem 1rem !important;
+    }
+}
+
 /* Add to your CSS file */
 .lesson-grid {
     display: grid;
@@ -1007,6 +1269,19 @@ footer {
     position: absolute;
     left: 0;
     font-weight: bold;
+}
+
+/* Override: Remove bullet dot from catalog cards and checkmark bullet lists */
+.level-card .card-bullets li::before,
+.ea-catalog-card li::before,
+.card-bullets li::before {
+    content: none !important;
+    display: none !important;
+}
+
+.level-card .card-bullets li,
+.ea-catalog-card li {
+    padding-left: 0;
 }
 
 /* Product Page Enhancements */

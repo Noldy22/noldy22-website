@@ -51,6 +51,7 @@
 
                 <li><a href="../about-Noldy22.html">About</a></li>
                 <li><a href="../contact-Noldy22.html">Contact</a></li>
+                <li><a id="authLink" class="nav-cta-btn" href="https://wa.me/255755904987?text=Hi%20Noldy%2C%20I%20found%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20custom%20MT5%20coding%20project." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Hire Developer</a></li>
             </ul>
         </nav>
     </header>
@@ -72,51 +73,9 @@
                     </p>
                 </div>
     
-                <!-- Add EA Cards Grid -->
-                <div class="levels-container">
-                    <div class="level-card">
-                        <h3 class="level-title">DualLimit EA</h3>
-                        <div class="section-description">
-                            <p>A smart risk-management EA that places simultaneous buy/sell limit orders with:</p>
-                            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                                <li>Adjustable distance between orders</li>
-                                <li>Percentage-based lot sizing (max 50% risk)</li>
-                                <li>EURUSD & XAUUSD only compatibility</li>
-                            </ul>
-                            <p>Automatically calculates optimal position sizes based on account balance while preventing over-leverage.</p>
-                        </div>
-                        <a href="mt5EAs/DualLimitEA.html" class="level-button">View Details & Setup Guide</a>
-                    </div>
-                    <div class="level-card">
-                        <h3 class="level-title">DualFlex EA</h3>
-                        <div class="section-description">
-                            <p>Advanced adaptive EA with dynamic order type selection featuring:</p>
-                            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                                <li>Switchable limit/stop order modes</li>
-                                <li>Smart volatility-based positioning</li>
-                                <li>Enhanced risk calculation engine</li>
-                                <li>EURUSD & XAUUSD optimized</li>
-                            </ul>
-                            <p>Combines conservative limit strategies with breakout stop approaches for market adaptability.</p>
-                        </div>
-                        <a href="mt5EAs/DualFlexEA.html" class="level-button">View Details & Setup Guide</a>
-                    </div>
-                    <!-- New TrendPlus Pro EA Card -->
-                    <div class="level-card">
-                        <h3 class="level-title">TrendPlus Pro EA</h3>
-                        <div class="section-description">
-                            <p>A powerful trend-following EA built for precision and ease of use, featuring:</p>
-                            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                                <li>Multi-timeframe trend confirmation (Daily, H4, 15M)</li>
-                                <li>One-click risk profiles (Low, Medium, High)</li>
-                                <li>Adaptive trailing stop to lock in profits</li>
-                                <li>On-chart dashboard with real-time metrics & controls</li>
-                                <li>Optimized for micro to standard accounts (≥ $20)</li>
-                            </ul>
-                            <p>Effortlessly automate your trend trades—attach, configure your risk, and let TrendPlus Pro handle the rest.</p>
-                        </div>
-                        <a href="mt5EAs/TrendPlusProEA.html" class="level-button">View Details & Setup Guide</a>
-                    </div>
+                <!-- Dynamic EA Cards Grid -->
+                <div class="levels-container" id="eaCardsContainer">
+                    <!-- Dynamically rendered via products-data.js -->
                 </div>
             </div>
         </section>
@@ -133,6 +92,53 @@
         </div>
     </footer>
 
+    <script type="module">
+        import { products } from './products-data.js';
+
+        function renderCatalog() {
+            const container = document.getElementById('eaCardsContainer');
+            if (!container) return;
+
+            container.innerHTML = products.map(product => {
+                const isFree = product.directPrice.toLowerCase().includes('free');
+                const actionBtn = isFree
+                    ? `<i class="fab fa-whatsapp"></i> Download Free via WhatsApp`
+                    : `<i class="fab fa-whatsapp"></i> Buy / Inquire via WhatsApp`;
+
+                return `
+                <div class="level-card ea-catalog-card" style="text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="card-badge-row">
+                            <span class="product-badge">${product.badge}</span>
+                            <span class="price-pill">${product.directPrice}</span>
+                        </div>
+                        <h3 class="level-title" style="margin-bottom: 0.5rem;">${product.title}</h3>
+                        <p style="color: rgba(248, 249, 250, 0.85); font-size: 0.95rem; margin-bottom: 1rem;">${product.subtitle}</p>
+                        <ul class="card-bullets">
+                            ${product.bullets.map(b => `
+                                <li><i class="fas fa-check" style="color: var(--accent); margin-right: 8px; flex-shrink: 0; margin-top: 4px;"></i> <span>${b}</span></li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div class="card-actions">
+                        <a href="./product.html?id=${product.id}" class="btn level-button">
+                            <i class="fas fa-info-circle"></i> View Details & Guide
+                        </a>
+                        <a href="${product.whatsappDirectUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-inquire">
+                            ${actionBtn}
+                        </a>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', renderCatalog);
+        } else {
+            renderCatalog();
+        }
+    </script>
     <script src="../noldy22.js"></script>
 </body>
 </html>
