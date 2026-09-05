@@ -208,7 +208,7 @@ export const products = [
     badge: "Session Volatility Engine",
     directPrice: "$80 Direct Crypto",
     mql5Price: "$100 on MQL5",
-    image: "../images/trading robot.jpg",
+    image: "../images/n22-london-breakout.png",
     mql5Url: "https://www.mql5.com/en/users/noldy22/seller",
     whatsappDirectUrl: "https://wa.me/255755904987?text=Hi%20Noldy%2C%20I%20want%20to%20buy%20the%20N22%20London%20Breakout%20EA%20direct%20via%20Crypto%20(%2480).",
     whatsappCustomUrl: "https://wa.me/255755904987?text=Hi%20Noldy%2C%20I%27d%20like%20to%20request%20custom%20modifications%20for%20the%20N22%20London%20Breakout%20EA.",
