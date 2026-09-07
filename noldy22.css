@@ -2912,7 +2912,7 @@ footer {
 /* --- Section B: Flagship Systems Grid --- */
 .flagship-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 1.75rem;
 }
 
@@ -3489,3 +3489,304 @@ footer {
         font-size: 0.95rem;
     }
 }
+
+/* ==========================================================================
+   In-Site Video Playback & Product Performance Stats
+   ========================================================================== */
+
+/* Video Trigger Button (Cards) */
+.btn-watch-demo {
+    background: rgba(255, 204, 0, 0.15) !important;
+    color: #ffcc00 !important;
+    border: 1.5px solid rgba(255, 204, 0, 0.4) !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem !important;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    text-transform: none;
+    margin-bottom: 0.5rem;
+}
+
+.btn-watch-demo:hover {
+    background: #ffcc00 !important;
+    color: #0b111e !important;
+    box-shadow: 0 0 18px rgba(255, 204, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-mql5-card {
+    background: rgba(255, 107, 107, 0.12) !important;
+    color: var(--cta) !important;
+    border: 1.5px solid rgba(255, 107, 107, 0.35) !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem !important;
+    border-radius: 6px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    text-transform: none;
+    text-decoration: none;
+}
+
+.btn-mql5-card:hover {
+    background: var(--cta) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 16px rgba(255, 107, 107, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Card Stats Pills */
+.card-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.65rem 0 1rem;
+}
+
+.stat-pill {
+    background: rgba(0, 255, 163, 0.1);
+    border: 1px solid rgba(0, 255, 163, 0.25);
+    color: #00FFA3;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.stat-pill.stat-dd {
+    background: rgba(255, 107, 107, 0.1);
+    border-color: rgba(255, 107, 107, 0.3);
+    color: #ff8b8b;
+}
+
+.stat-pill.stat-time {
+    background: rgba(255, 204, 0, 0.1);
+    border-color: rgba(255, 204, 0, 0.3);
+    color: #ffcc00;
+}
+
+/* Native Video Modal */
+.video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 7, 10, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.video-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.video-modal-dialog {
+    width: 100%;
+    max-width: 900px;
+    background: #0B0E14;
+    border: 1.5px solid rgba(255, 215, 0, 0.35);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(255, 215, 0, 0.15);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-modal.active .video-modal-dialog {
+    transform: scale(1);
+}
+
+.video-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1.4rem;
+    background: #141821;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.18);
+}
+
+.video-modal-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.video-modal-title i {
+    color: #ffcc00;
+}
+
+.video-modal-close {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.video-modal-close:hover {
+    color: #ffcc00;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Product Detail Page Hero Media Container */
+.product-media-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 520px;
+}
+
+.product-emblem-wrap {
+    width: 100%;
+    background: #080d16;
+    border: 1.5px solid rgba(255, 215, 0, 0.25);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.product-emblem-img {
+    max-width: 100%;
+    max-height: 240px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.product-video-showcase {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid rgba(255, 215, 0, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 20px rgba(255, 215, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.video-responsive-16-9 {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.video-responsive-16-9 iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.video-caption-bar {
+    background: #101622;
+    padding: 0.75rem 1rem;
+    font-size: 0.86rem;
+    color: rgba(248, 249, 250, 0.88);
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.12);
+    box-sizing: border-box;
+}
+
+.video-caption-bar i {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Verified Stats Bar / Grid in Product Detail */
+.product-stats-banner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, rgba(17, 25, 39, 0.85) 0%, rgba(11, 17, 30, 0.95) 100%);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 0.5rem;
+    border-right: 1px solid rgba(255, 215, 0, 0.12);
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #00FFA3;
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value.gold {
+    color: #ffcc00;
+}
+
+.stat-value.warn {
+    color: #FF6B6B;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: rgba(248, 249, 250, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .product-stats-banner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    .stat-item:nth-child(2) {
+        border-right: none;
+    }
+}

@@ -67,12 +67,15 @@
 
                 <!-- Product Hero Header (Media + Summary + Dual-Checkout CTA) -->
                 <div class="product-header">
-                    <div class="product-media">
+                    <div class="product-media" id="productMediaWrapper">
                         <img id="productImage" src="" alt="Product Interface Preview" class="section-image product-preview-img">
                     </div>
                     <div class="product-summary">
                         <p class="section-description" id="productSubtitle" style="font-size: 1.25rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem;"></p>
-                        <p class="section-description" id="productStrategy" style="line-height: 1.7; margin-bottom: 2rem;"></p>
+                        <p class="section-description" id="productStrategy" style="line-height: 1.7; margin-bottom: 1.25rem;"></p>
+
+                        <!-- Injected Verified Stats Container -->
+                        <div id="productStatsContainer"></div>
 
                         <!-- Dual-Checkout CTA Block -->
                         <div class="dual-checkout-box">
@@ -187,67 +190,136 @@
             document.title = `${product.title} | Noldy22`;
             document.getElementById('productBadge').textContent = product.badge;
             document.getElementById('productTitle').textContent = product.title;
-            document.getElementById('productSubtitle').textContent = product.subtitle;
-            document.getElementById('productStrategy').textContent = product.strategySummary;
+            document.getElementById('productSubtitle').textContent = product.subtitle || product.description || '';
+            document.getElementById('productStrategy').textContent = product.strategySummary || product.description || '';
 
-            // Media
-            const imgEl = document.getElementById('productImage');
-            imgEl.src = product.image;
-            imgEl.alt = `${product.title} Interface Preview`;
+            // Resolve Image Path
+            const resolvedImage = product.image.startsWith('../')
+                ? product.image
+                : (product.image.startsWith('assets/') ? `../${product.image}` : product.image);
+
+            // Left Column Media: Permanent Emblem Box + Video Player directly underneath (no tabs, no theater button)
+            const mediaWrap = document.getElementById('productMediaWrapper');
+            mediaWrap.innerHTML = `
+                <div class="product-media-container">
+                    <!-- 1. Product Emblem / SVG Logo permanently anchored at top of left column -->
+                    <div class="product-emblem-wrap">
+                        <img id="productImage" src="${resolvedImage}" alt="${product.title} Emblem" class="product-emblem-img">
+                    </div>
+
+                    <!-- 2. YouTube Strategy Tester Video Player directly underneath emblem box -->
+                    ${product.youtubeId ? `
+                    <div class="product-video-showcase">
+                        <div class="video-responsive-16-9">
+                            <iframe
+                                id="productVideoIframe"
+                                src="https://www.youtube-nocookie.com/embed/${product.youtubeId}?rel=0&modestbranding=1"
+                                title="${product.title} - Strategy Tester Run"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-caption-bar">
+                            <i class="fas fa-play-circle" style="color: var(--accent);"></i>
+                            <span>Real-Tick Strategy Tester Run (${product.pair || 'XAUUSD'} ${product.timeframe || 'M15'})</span>
+                        </div>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+
+            // Injected Performance Stats (if available)
+            const statsContainer = document.getElementById('productStatsContainer');
+            if (product.stats && statsContainer) {
+                statsContainer.innerHTML = `
+                    <div class="product-stats-banner">
+                        <div class="stat-item">
+                            <div class="stat-value">${product.stats.profit}</div>
+                            <div class="stat-label">Net Profit</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value gold">${product.stats.period}</div>
+                            <div class="stat-label">Tested Period</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value warn">${product.stats.drawdown}</div>
+                            <div class="stat-label">Max Drawdown</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">${product.stats.winRate}</div>
+                            <div class="stat-label">Win Rate</div>
+                        </div>
+                    </div>
+                `;
+            }
 
             // Dual-Checkout CTA
-            const isFree = product.directPrice.toLowerCase().includes('free');
+            const directPriceText = product.directPrice || (product.priceDirect ? `$${product.priceDirect} Direct Crypto` : 'Contact for Price');
+            const mql5PriceText = product.mql5Price || (product.priceMql5 ? `$${product.priceMql5} on MQL5` : '');
+            const isFree = directPriceText.toLowerCase().includes('free');
+
             const btnDirect = document.getElementById('btnDirectCrypto');
-            btnDirect.href = product.whatsappDirectUrl;
-            document.getElementById('directPriceTag').textContent = product.directPrice;
+            btnDirect.href = product.whatsappDirectUrl || (`https://wa.me/255755904987?text=${encodeURIComponent(`Hi Noldy, I want to buy ${product.title} direct via Crypto ($${product.priceDirect || 89}).`)}`);
+            document.getElementById('directPriceTag').textContent = directPriceText;
             btnDirect.querySelector('.btn-main-text').innerHTML = isFree
                 ? '<i class="fab fa-whatsapp"></i> Download Free via WhatsApp'
                 : '<i class="fab fa-whatsapp"></i> Buy Direct via Crypto (Instant Delivery)';
 
             const btnMql5 = document.getElementById('btnMql5Market');
-            btnMql5.href = product.mql5Url;
-            document.getElementById('mql5PriceTag').textContent = product.mql5Price;
+            btnMql5.href = product.mql5Url || '#';
+            document.getElementById('mql5PriceTag').textContent = mql5PriceText;
             btnMql5.querySelector('.btn-main-text').innerHTML = isFree
                 ? '<i class="fas fa-download"></i> Get Free on MQL5'
                 : '<i class="fas fa-shopping-cart"></i> Buy on MQL5 Market';
 
             const customLink = document.getElementById('customModLink');
-            customLink.href = product.whatsappCustomUrl;
+            customLink.href = product.whatsappCustomUrl || (`https://wa.me/255755904987?text=${encodeURIComponent(`Hi Noldy, I'd like to request custom modifications for the ${product.title}.`)}`);
 
             // Feature Cards Grid
             const featuresGrid = document.getElementById('featuresGrid');
-            featuresGrid.innerHTML = product.features.map(f => `
-                <div class="feature-item" style="padding: 1.25rem; background: rgba(10, 25, 47, 0.6); border-radius: 6px; border: 1px solid rgba(255, 215, 0, 0.12);">
-                    <h3 style="margin-bottom: 0.6rem; color: var(--neutral-light); font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <i class="${f.icon}" style="color: var(--accent);"></i> ${f.title}
-                    </h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: rgba(248, 249, 250, 0.85);">${f.description}</p>
-                </div>
-            `).join('');
+            if (product.features && featuresGrid) {
+                featuresGrid.innerHTML = product.features.map(f => `
+                    <div class="feature-item" style="padding: 1.25rem; background: rgba(10, 25, 47, 0.6); border-radius: 6px; border: 1px solid rgba(255, 215, 0, 0.12);">
+                        <h3 style="margin-bottom: 0.6rem; color: var(--neutral-light); font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="${f.icon}" style="color: var(--accent);"></i> ${f.title}
+                        </h3>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: rgba(248, 249, 250, 0.85);">${f.description}</p>
+                    </div>
+                `).join('');
+            }
 
             // Configuration Parameters Table
             const paramsBody = document.getElementById('parametersBody');
-            paramsBody.innerHTML = product.parametersTable.map(p => `
-                <tr style="border-bottom: 1px solid rgba(255, 215, 0, 0.1);">
-                    <td style="padding: 1rem; font-weight: 600; color: var(--accent);">${p.name}</td>
-                    <td style="padding: 1rem; color: var(--neutral-light); font-family: monospace; font-size: 1rem;">${p.defaultValue}</td>
-                    <td style="padding: 1rem; color: rgba(248, 249, 250, 0.85); font-size: 0.95rem;">${p.description}</td>
-                </tr>
-            `).join('');
+            if (product.parametersTable && paramsBody) {
+                paramsBody.innerHTML = product.parametersTable.map(p => `
+                    <tr style="border-bottom: 1px solid rgba(255, 215, 0, 0.1);">
+                        <td style="padding: 1rem; font-weight: 600; color: var(--accent);">${p.name}</td>
+                        <td style="padding: 1rem; color: var(--neutral-light); font-family: monospace; font-size: 1rem;">${p.defaultValue}</td>
+                        <td style="padding: 1rem; color: rgba(248, 249, 250, 0.85); font-size: 0.95rem;">${p.description}</td>
+                    </tr>
+                `).join('');
+            }
 
             // Notice & Steps
-            document.getElementById('noticeText').textContent = product.notice;
+            if (product.notice) {
+                document.getElementById('noticeText').textContent = product.notice;
+            }
             const stepsList = document.getElementById('installStepsList');
-            stepsList.innerHTML = product.installSteps.map(step => `<li>${step}</li>`).join('');
+            if (product.installSteps && stepsList) {
+                stepsList.innerHTML = product.installSteps.map(step => `<li>${step}</li>`).join('');
+            }
 
             // FAQ
             const faqGrid = document.getElementById('faqGrid');
-            faqGrid.innerHTML = product.faq.map(item => `
-                <div class="faq-item level-card" style="text-align: left; padding: 1.25rem 1.5rem;">
-                    <h3 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 0.5rem;">${item.question}</h3>
-                    <p style="font-size: 0.95rem; color: rgba(248, 249, 250, 0.85);">${item.answer}</p>
-                </div>
-            `).join('');
+            if (product.faq && faqGrid) {
+                faqGrid.innerHTML = product.faq.map(item => `
+                    <div class="faq-item level-card" style="text-align: left; padding: 1.25rem 1.5rem;">
+                        <h3 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 0.5rem;">${item.question}</h3>
+                        <p style="font-size: 0.95rem; color: rgba(248, 249, 250, 0.85);">${item.answer}</p>
+                    </div>
+                `).join('');
+            }
         }
 
         if (document.readyState === 'loading') {

@@ -402,9 +402,129 @@ export const products = [
         answer: "Yes, it is freely provided by Noldy22 to assist traders in identifying institutional liquidity and market structure."
       }
     ]
+  },
+  {
+    id: "n22-gold-momentum-scalper",
+    title: "N22 Gold Momentum Trend Scalper MT5",
+    category: "Expert Advisor",
+    platform: "MT5",
+    pair: "XAUUSD",
+    timeframe: "M15",
+    priceDirect: 89,
+    priceMql5: 99.90,
+    badge: "Verified Backtest",
+    image: "assets/images/products/gold-momentum-scalper.svg", // Use vector SVG to prevent blur
+    youtubeId: "XMvzQ1ig-Cw",
+    mql5Url: "https://www.mql5.com/en/market/product/194551",
+    stats: {
+      profit: "+40.5%",
+      period: "6 Months",
+      drawdown: "11.29%",
+      winRate: "64.35%"
+    },
+    description: "Disciplined M15 momentum and breakout engine for XAUUSD. Features H1 macro trend confirmation, tick volume filtering, ATR stops, and zero grid/martingale risk.",
+    directPrice: "$89 Direct Crypto",
+    mql5Price: "$99.90 on MQL5",
+    whatsappDirectUrl: "https://wa.me/255755904987?text=Hi%20Noldy%2C%20I%20want%20to%20buy%20the%20N22%20Gold%20Momentum%20Trend%20Scalper%20MT5%20direct%20via%20Crypto%20(%2489).",
+    whatsappCustomUrl: "https://wa.me/255755904987?text=Hi%20Noldy%2C%20I%27d%20like%20to%20request%20custom%20modifications%20for%20the%20N22%20Gold%20Momentum%20Trend%20Scalper%20MT5.",
+    subtitle: "Disciplined M15 momentum & breakout engine for XAUUSD with H1 macro confirmation and zero grid/martingale risk.",
+    strategySummary: "N22 Gold Momentum Trend Scalper MT5 is an institutional-grade algorithmic execution system designed specifically for XAUUSD (Gold) on the M15 timeframe. It combines H1 macro-trend directional filtering with real-time tick volume surges and ATR volatility expansion to scalp high-probability momentum bursts while maintaining strict risk-per-trade controls and zero grid or martingale exposure.",
+    bullets: [
+      "Disciplined M15 momentum & breakout engine for XAUUSD (Gold)",
+      "H1 macro trend confirmation with tick volume spike filtering",
+      "Dynamic ATR-based stop loss and multi-target profit protection",
+      "Zero grid, zero martingale, strict single-position risk management",
+      "Verified backtest: +40.5% profit, 11.29% drawdown, 64.35% win rate"
+    ],
+    features: [
+      {
+        title: "Macro Trend Confirmation",
+        description: "Aligns M15 intraday entries with H1 higher-timeframe trend structure to prevent counter-trend fakeouts.",
+        icon: "fas fa-compass"
+      },
+      {
+        title: "Tick Volume Surge Filter",
+        description: "Enters trades only when real institutional liquidity and volume expansion confirm momentum.",
+        icon: "fas fa-chart-line"
+      },
+      {
+        title: "ATR Dynamic Risk Management",
+        description: "Dynamic ATR-calculated stop loss and multi-target profit protection for optimal risk-to-reward ratios.",
+        icon: "fas fa-shield-alt"
+      },
+      {
+        title: "Zero Dangerous Math",
+        description: "Strict stop loss on every position with fixed risk sizing. No martingale, grid accumulation, or hedging traps.",
+        icon: "fas fa-check-circle"
+      }
+    ],
+    parametersTable: [
+      {
+        name: "Timeframe",
+        defaultValue: "M15",
+        description: "Trading execution chart timeframe (optimized for XAUUSD M15)"
+      },
+      {
+        name: "Macro Trend Filter",
+        defaultValue: "H1",
+        description: "Higher timeframe EMA / structure direction filter"
+      },
+      {
+        name: "Risk Percentage",
+        defaultValue: "1.5%",
+        description: "Dynamic risk per trade based on account balance/equity"
+      },
+      {
+        name: "ATR Multiplier SL",
+        defaultValue: "1.8",
+        description: "Average True Range multiplier for dynamic volatility stop-loss"
+      },
+      {
+        name: "ATR Multiplier TP",
+        defaultValue: "3.2",
+        description: "Take profit target based on ATR expansion"
+      },
+      {
+        name: "Volume Filter Threshold",
+        defaultValue: "1.5x",
+        description: "Minimum tick volume multiple over 20-bar average required for entry"
+      },
+      {
+        name: "Max Spread Allowed",
+        defaultValue: "35 points",
+        description: "Maximum allowable broker spread to avoid high slippage entry"
+      }
+    ],
+    notice: "XAUUSD (Gold) volatility can fluctuate dramatically during high-impact US economic releases. Always test on demo before deploying on live capital.",
+    installSteps: [
+      "Purchase direct via Crypto ($89 instant delivery) or via official MQL5 Market ($99.90)",
+      "Copy n22-gold-momentum-scalper.ex5 into your MT5 Experts folder (File > Open Data Folder > MQL5 > Experts)",
+      "Restart MetaTrader 5 and attach the EA to an M15 XAUUSD chart",
+      "Adjust your risk percentage in the input parameters (recommended 1.0%–2.0%)",
+      "Ensure 'Allow Algo Trading' is toggled ON in your MT5 toolbar"
+    ],
+    faq: [
+      {
+        question: "What timeframe and pair is this EA optimized for?",
+        answer: "It is specifically engineered for XAUUSD (Gold) on the M15 timeframe, utilizing H1 for macro trend alignment."
+      },
+      {
+        question: "Does this EA use grid or martingale?",
+        answer: "No. It uses zero grid and zero martingale. Every trade has a predefined hard stop loss and take profit."
+      },
+      {
+        question: "Can I use it on prop firm accounts?",
+        answer: "Yes, the strict drawdown control (11.29% max historical DD) and fixed risk per trade make it ideal for prop firm challenges."
+      },
+      {
+        question: "What is the minimum recommended balance?",
+        answer: "A minimum balance of $100–$200 on a standard or raw spread account is recommended."
+      }
+    ]
   }
 ];
 
 if (typeof window !== "undefined") {
   window.productsData = products;
 }
+

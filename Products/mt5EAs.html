@@ -100,36 +100,62 @@
             if (!container) return;
 
             container.innerHTML = products.map(product => {
-                const isFree = product.directPrice.toLowerCase().includes('free');
+                const directPriceText = product.directPrice || (product.priceDirect ? `$${product.priceDirect} Direct Crypto` : 'Contact for Price');
+                const mql5PriceText = product.mql5Price || (product.priceMql5 ? `$${product.priceMql5} on MQL5` : '');
+                const isFree = directPriceText.toLowerCase().includes('free');
                 const actionBtn = isFree
                     ? `<i class="fab fa-whatsapp"></i> Download Free via WhatsApp`
-                    : `<i class="fab fa-whatsapp"></i> Buy / Inquire via WhatsApp`;
+                    : `<i class="fab fa-whatsapp"></i> Buy Direct via Crypto (${product.priceDirect ? '$' + product.priceDirect : directPriceText})`;
+
+                // Resolve image path whether root-relative, absolute, or relative to Products/
+                const resolvedImage = product.image.startsWith('../')
+                    ? product.image
+                    : (product.image.startsWith('assets/') ? `../${product.image}` : product.image);
+
+                const subtitleText = product.subtitle || product.description || '';
+                const bullets = product.bullets || [];
+
+                const mql5PriceLabel = product.priceMql5
+                    ? `($${Number(product.priceMql5).toFixed(2)})`
+                    : (mql5PriceText ? `(${mql5PriceText})` : '');
 
                 return `
                 <div class="level-card ea-catalog-card" style="text-align: left; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding-top: 0;">
                     <div>
-                        <div class="card-thumb-wrap" style="height: 180px; margin: 0 -2rem 1.5rem -2rem; overflow: hidden; background: #080d16; border-bottom: 1px solid rgba(255, 215, 0, 0.15);">
-                            <img src="${product.image}" alt="${product.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <div class="card-thumb-wrap" style="height: 180px; margin: 0 -2rem 1.25rem -2rem; overflow: hidden; background: #080d16; border-bottom: 1px solid rgba(255, 215, 0, 0.15); display: flex; align-items: center; justify-content: center;">
+                            <img src="${resolvedImage}" alt="${product.title}" style="width: 100%; height: 100%; object-fit: contain; display: block; max-height: 180px; padding: 6px;">
                         </div>
                         <div class="card-badge-row">
                             <span class="product-badge">${product.badge}</span>
-                            <span class="price-pill">${product.directPrice}</span>
+                            <span class="price-pill">${directPriceText}</span>
                         </div>
                         <h3 class="level-title" style="margin-bottom: 0.5rem;">${product.title}</h3>
-                        <p style="color: rgba(248, 249, 250, 0.85); font-size: 0.95rem; margin-bottom: 1rem;">${product.subtitle}</p>
+                        ${product.stats ? `
+                        <div class="card-stats-row">
+                            <span class="stat-pill"><i class="fas fa-arrow-trend-up"></i> ${product.stats.profit} (${product.stats.period})</span>
+                            <span class="stat-pill stat-dd"><i class="fas fa-shield-alt"></i> DD: ${product.stats.drawdown}</span>
+                            <span class="stat-pill stat-time"><i class="fas fa-bullseye"></i> WR: ${product.stats.winRate}</span>
+                        </div>
+                        ` : ''}
+                        <p style="color: rgba(248, 249, 250, 0.85); font-size: 0.95rem; margin-bottom: 1rem;">${subtitleText}</p>
                         <ul class="card-bullets">
-                            ${product.bullets.map(b => `
+                            ${bullets.map(b => `
                                 <li><i class="fas fa-check" style="color: var(--accent); margin-right: 8px; flex-shrink: 0; margin-top: 4px;"></i> <span>${b}</span></li>
                             `).join('')}
                         </ul>
                     </div>
-                    <div class="card-actions">
+                    <div class="card-actions" style="margin-top: 1rem;">
                         <a href="./product.html?id=${product.id}" class="btn level-button">
                             <i class="fas fa-info-circle"></i> View Details & Guide
                         </a>
                         <a href="${product.whatsappDirectUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-inquire">
                             ${actionBtn}
                         </a>
+                        ${product.mql5Url ? `
+                        <a href="${product.mql5Url}" target="_blank" rel="noopener noreferrer" class="btn btn-mql5-card">
+                            <i class="fas fa-external-link-alt"></i> Buy on MQL5 Market ${mql5PriceLabel}
+                        </a>
+                        ` : ''}
                     </div>
                 </div>
             `;

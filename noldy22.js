@@ -65,3 +65,70 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
+
+// Universal Video Modal Integration for Strategy Tester Runs
+function createVideoModalElement() {
+  let modal = document.getElementById('n22VideoModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'n22VideoModal';
+    modal.className = 'video-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.innerHTML = `
+      <div class="video-modal-dialog">
+        <div class="video-modal-header">
+          <h3 class="video-modal-title" id="videoModalTitle"><i class="fas fa-play-circle" style="color: var(--accent);"></i> Strategy Tester Run</h3>
+          <button type="button" class="video-modal-close" aria-label="Close Video" id="videoModalCloseBtn">&times;</button>
+        </div>
+        <div class="video-responsive-16-9">
+          <iframe id="videoModalIframe" src="" title="Strategy Tester Run" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeVideoModal();
+      }
+    });
+
+    const closeBtn = modal.querySelector('#videoModalCloseBtn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeVideoModal);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeVideoModal();
+      }
+    });
+  }
+  return modal;
+}
+
+window.openVideoModal = function(youtubeId, title) {
+  if (!youtubeId) return;
+  const modal = createVideoModalElement();
+  const iframe = modal.querySelector('#videoModalIframe');
+  const titleEl = modal.querySelector('#videoModalTitle');
+  if (titleEl && title) {
+    titleEl.innerHTML = `<i class="fas fa-play-circle" style="color: var(--accent);"></i> ${title} — Strategy Tester Run`;
+  }
+  if (iframe) {
+    iframe.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`;
+  }
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeVideoModal = function() {
+  const modal = document.getElementById('n22VideoModal');
+  if (modal) {
+    modal.classList.remove('active');
+    const iframe = modal.querySelector('#videoModalIframe');
+    if (iframe) iframe.src = '';
+    document.body.style.overflow = '';
+  }
+};
